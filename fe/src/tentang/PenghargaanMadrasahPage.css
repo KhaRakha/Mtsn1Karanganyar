@@ -1,0 +1,236 @@
+.penghargaan-madrasah-page .content-section-heading {
+  width: 100%;
+  max-width: none;
+  text-align: center;
+}
+
+.penghargaan-madrasah-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
+}
+
+.penghargaan-madrasah-card {
+  position: relative;
+  min-width: 0;
+  aspect-ratio: 1.16 / 1;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  overflow: hidden;
+  border-radius: 10px;
+  background: #edf4f0;
+  box-shadow: 0 12px 24px rgb(23 38 74 / 8%);
+  cursor: zoom-in;
+  text-align: left;
+}
+
+.penghargaan-madrasah-card img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 350ms ease;
+}
+
+.penghargaan-madrasah-card:hover img {
+  transform: scale(1.04);
+}
+
+.penghargaan-madrasah-card-caption {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: grid;
+  gap: 5px;
+  padding: 54px 20px 18px;
+  background: linear-gradient(180deg, transparent, rgb(8 25 48 / 82%));
+  color: #fff;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 220ms ease, transform 220ms ease;
+}
+
+.penghargaan-madrasah-card:hover .penghargaan-madrasah-card-caption,
+.penghargaan-madrasah-card:focus-visible .penghargaan-madrasah-card-caption {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.penghargaan-madrasah-card-caption strong {
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+.penghargaan-madrasah-card-caption > span {
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+body.penghargaan-modal-open {
+  overflow: hidden;
+}
+
+.penghargaan-madrasah-lightbox {
+  position: fixed;
+  z-index: 1000;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 48px 74px;
+  background: rgb(5 10 20 / 88%);
+  backdrop-filter: blur(8px);
+}
+
+.penghargaan-madrasah-lightbox figure {
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  max-width: min(1180px, calc(100vw - 148px));
+  max-height: calc(100vh - 96px);
+  margin: 0;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #111827;
+  box-shadow: 0 24px 80px rgb(0 0 0 / 42%);
+}
+
+.penghargaan-madrasah-lightbox figure img {
+  display: block;
+  width: 100%;
+  max-width: 1180px;
+  max-height: calc(100vh - 170px);
+  object-fit: contain;
+}
+
+.penghargaan-madrasah-lightbox figure figcaption {
+  display: grid;
+  gap: 4px;
+  padding: 14px 18px;
+  color: #fff;
+}
+
+.penghargaan-madrasah-lightbox figure figcaption > span {
+  color: #9ed8dc;
+  font-size: 11px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.penghargaan-madrasah-lightbox figure figcaption strong {
+  font-size: 16px;
+}
+
+.penghargaan-madrasah-lightbox figure figcaption p {
+  margin: 2px 0 0;
+  color: #d1d5db;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.penghargaan-madrasah-lightbox-close,
+.penghargaan-madrasah-lightbox-nav {
+  position: absolute;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgb(255 255 255 / 22%);
+  border-radius: 50%;
+  background: rgb(10 20 35 / 72%);
+  color: #fff;
+  cursor: pointer;
+}
+
+.penghargaan-madrasah-lightbox-close {
+  top: 20px;
+  right: 24px;
+  width: 46px;
+  height: 46px;
+  font-size: 34px;
+  line-height: 1;
+}
+
+.penghargaan-madrasah-lightbox-nav {
+  top: 50%;
+  width: 52px;
+  height: 52px;
+  transform: translateY(-50%);
+  font-size: 38px;
+  line-height: 1;
+}
+
+.penghargaan-madrasah-lightbox-nav.prev {
+  left: 18px;
+}
+
+.penghargaan-madrasah-lightbox-nav.next {
+  right: 18px;
+}
+
+@media (max-width: 900px) {
+  .penghargaan-madrasah-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+  }
+
+  .penghargaan-madrasah-card {
+    aspect-ratio: 1.16 / 1;
+  }
+}
+
+@media (max-width: 620px) {
+  .penghargaan-madrasah-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .penghargaan-madrasah-card {
+    aspect-ratio: 1.4 / 1;
+  }
+
+  .penghargaan-madrasah-card-caption {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .penghargaan-madrasah-lightbox {
+    padding: 64px 12px 24px;
+  }
+
+  .penghargaan-madrasah-lightbox figure {
+    max-width: calc(100vw - 24px);
+    max-height: calc(100vh - 88px);
+  }
+
+  .penghargaan-madrasah-lightbox figure img {
+    max-height: calc(100vh - 180px);
+  }
+
+  .penghargaan-madrasah-lightbox-nav {
+    top: auto;
+    bottom: 12px;
+    width: 44px;
+    height: 44px;
+    transform: none;
+  }
+
+  .penghargaan-madrasah-lightbox-nav.prev {
+    left: calc(50% - 54px);
+  }
+
+  .penghargaan-madrasah-lightbox-nav.next {
+    right: calc(50% - 54px);
+  }
+
+  .penghargaan-madrasah-lightbox-close {
+    top: 10px;
+    right: 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .penghargaan-madrasah-card img,
+  .penghargaan-madrasah-card-caption {
+    transition: none;
+  }
+}

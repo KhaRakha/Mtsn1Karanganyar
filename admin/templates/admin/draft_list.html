@@ -1,0 +1,68 @@
+{% extends "admin/base.html" %}
+
+{% block title %}Daftar Draf | Admin MTsN 1 Karanganyar{% endblock %}
+
+{% block content %}
+  <div class="page-heading">
+    <div>
+      <span class="page-kicker">KONTEN BELUM TERBIT</span>
+      <h1>Daftar Draf</h1>
+      <p>Konten yang sudah disimpan dengan status Draf muncul di sini. Perubahan yang belum disimpan tidak masuk ke daftar.</p>
+    </div>
+  </div>
+
+  <section class="panel">
+    {% if drafts %}
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Judul draf</th>
+              <th>Jenis</th>
+              <th>Terakhir disimpan</th>
+              <th class="actions-heading">Aksi</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for draft in drafts %}
+              <tr>
+                <td class="table-title" data-label="Judul draf">{{ draft.title }}</td>
+                <td data-label="Jenis">{{ draft.type_label }}</td>
+                <td data-label="Terakhir disimpan">{{ draft.updated_at }}</td>
+                <td class="row-actions" data-label="Aksi">
+                  <a class="table-action" href="{{ draft.edit_url }}">Edit</a>
+                  <form method="post" action="{{ draft.publish_url }}" data-draft-action-form>
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                    <button
+                      class="table-action"
+                      type="button"
+                      data-draft-confirm="publish"
+                      data-draft-title="{{ draft.title }}"
+                    >Terbitkan</button>
+                  </form>
+                  {% if draft.kind == 'content' %}
+                    <form method="post" action="{{ draft.delete_url }}" data-draft-action-form>
+                      <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                      <button
+                        class="table-action danger"
+                        type="button"
+                        data-draft-confirm="delete"
+                        data-draft-title="{{ draft.title }}"
+                      >Hapus</button>
+                    </form>
+                  {% endif %}
+                </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    {% else %}
+      <div class="empty-state">
+        <span aria-hidden="true"><svg class="admin-icon"><use href="#icon-file-edit"></use></svg></span>
+        <strong>Belum ada draf tersimpan</strong>
+        <p>Simpan halaman atau konten dengan status Draf agar muncul di daftar ini.</p>
+      </div>
+    {% endif %}
+  </section>
+{% endblock %}

@@ -1,0 +1,260 @@
+{% extends "admin/base.html" %}
+
+{% block title %}Kelola {{ page_label }} | Admin MTsN 1 Karanganyar{% endblock %}
+
+{% block content %}
+  <div class="page-heading">
+    <div>
+      <span class="page-kicker">KONTEN AKADEMIK</span>
+      <h1>Kelola Minat dan Bakat</h1>
+      <p>Ubah informasi halaman, daftar kegiatan, foto dokumentasi, dan FAQ dari satu tempat.</p>
+    </div>
+  </div>
+
+  <section class="panel home-editor-panel minat-bakat-editor">
+    {% if errors %}
+      <div class="form-errors" role="alert">
+        {% for error in errors %}<p>{{ error }}</p>{% endfor %}
+      </div>
+    {% endif %}
+    <form method="post" class="content-form" enctype="multipart/form-data" data-minat-bakat-editor>
+      <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+
+      <div class="publication-status-toolbar">
+        <label for="minat-page-status">Status halaman
+          <select id="minat-page-status" name="status">
+            <option value="draft" {% if values.status == 'draft' %}selected{% endif %}>Draf</option>
+            <option value="published" {% if values.status == 'published' %}selected{% endif %}>Terbit</option>
+          </select>
+        </label>
+        <small class="field-help">Semua perubahan konten dan status disimpan bersama.</small>
+      </div>
+
+      <details class="history-editor-section home-editor-section" open>
+        <summary>Informasi utama halaman</summary>
+        <div class="history-form-grid history-form-grid-two">
+          <label>Judul halaman
+            <textarea name="title" rows="2" maxlength="180" required>{{ values.title }}</textarea>
+          </label>
+          <label>Label / badge
+            <input name="badge" maxlength="100" value="{{ values.badge }}">
+          </label>
+        </div>
+        <label>Deskripsi halaman
+          <textarea name="description" rows="3" maxlength="2000">{{ values.description }}</textarea>
+        </label>
+      </details>
+
+      <details class="history-editor-section home-editor-section" open>
+        <summary>Judul bagian kegiatan</summary>
+        <label>Judul bagian
+          <input name="programs_title" maxlength="180" required value="{{ minat_data.programsTitle }}">
+        </label>
+      </details>
+
+      <details class="history-editor-section home-editor-section" open>
+        <summary>Daftar kegiatan dan dokumentasi</summary>
+        <p class="field-help">Atur nama, kategori, deskripsi, foto, serta semua dokumentasi setiap kegiatan.</p>
+        <input type="hidden" name="program_count" value="{{ minat_data.programs|length }}" data-mb-program-count>
+        <div class="history-repeat-list" data-mb-program-list>
+          {% for program in minat_data.programs %}
+            {% set program_index = loop.index0 %}
+            <details class="history-repeat-card minat-bakat-program-card" data-mb-program {% if errors %}open{% endif %}>
+              <summary class="history-repeat-heading">
+                <strong data-mb-program-heading>Kegiatan {{ loop.index }} — {{ program.name }}</strong>
+                <button class="history-remove-button" type="button" data-mb-remove-program>Hapus kegiatan</button>
+              </summary>
+              <div class="history-form-grid history-form-grid-two">
+                <label>Nama kegiatan
+                  <input name="programs[{{ program_index }}][name]" data-mb-field="name" maxlength="120" required value="{{ program.name }}">
+                </label>
+                <label>Slug URL
+                  <input name="programs[{{ program_index }}][slug]" data-mb-field="slug" maxlength="120" required value="{{ program.slug }}">
+                </label>
+                <label>Kategori
+                  <input name="programs[{{ program_index }}][category]" data-mb-field="category" maxlength="100" required value="{{ program.category }}">
+                </label>
+                <label>Kategori wajib
+                  <select name="programs[{{ program_index }}][required]" data-mb-field="required">
+                    <option value="false" {% if not program.required %}selected{% endif %}>Tidak</option>
+                    <option value="true" {% if program.required %}selected{% endif %}>Ya</option>
+                  </select>
+                </label>
+              </div>
+              <label>Deskripsi singkat
+                <textarea name="programs[{{ program_index }}][description]" data-mb-field="description" rows="3" maxlength="1000" required>{{ program.description }}</textarea>
+              </label>
+              <label>Detail kegiatan
+                <textarea name="programs[{{ program_index }}][details]" data-mb-field="details" rows="4" maxlength="2000">{{ program.details }}</textarea>
+              </label>
+
+              <div class="history-form-grid history-form-grid-two">
+                <label>Teks alternatif foto kartu
+                  <input name="programs[{{ program_index }}][imageAlt]" data-mb-field="imageAlt" maxlength="180" value="{{ program.imageAlt }}">
+                </label>
+                <div class="home-editor-image-field" data-mb-image-control>
+                  <label>URL foto kartu
+                    <input type="text" name="programs[{{ program_index }}][image]" data-mb-field="image" data-mb-image-url maxlength="500" value="{{ program.image }}">
+                  </label>
+                  <label>Unggah foto pengganti
+                    <input type="file" name="programs[{{ program_index }}][image_file]" data-mb-image-upload="image" accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp">
+                  </label>
+                  <img class="history-image-preview" src="{{ program.image }}" alt="Pratinjau {{ program.name }}" data-mb-preview>
+                </div>
+              </div>
+
+              <div class="minat-bakat-documentation">
+                <div class="history-repeat-heading">
+                  <strong>Foto dokumentasi</strong>
+                  <button class="button-secondary" type="button" data-mb-add-documentation>Tambah dokumentasi</button>
+                </div>
+                <input type="hidden" name="programs[{{ program_index }}][documentation_count]" value="{{ program.documentation|length }}" data-mb-documentation-count>
+                <div class="history-repeat-list" data-mb-documentation-list>
+                  {% for item in program.documentation %}
+                    {% set documentation_index = loop.index0 %}
+                    <article class="history-repeat-card minat-bakat-documentation-card" data-mb-documentation>
+                      <div class="history-repeat-heading">
+                        <strong data-mb-documentation-heading>Dokumentasi {{ loop.index }}</strong>
+                        <button class="history-remove-button" type="button" data-mb-remove-documentation>Hapus</button>
+                      </div>
+                      <div class="history-form-grid history-form-grid-two">
+                        <label>Judul dokumentasi
+                          <input name="programs[{{ program_index }}][documentation][{{ documentation_index }}][title]" data-mb-documentation-field="title" maxlength="180" value="{{ item.title }}">
+                        </label>
+                        <label>Teks alternatif foto
+                          <input name="programs[{{ program_index }}][documentation][{{ documentation_index }}][alt]" data-mb-documentation-field="alt" maxlength="180" value="{{ item.alt }}">
+                        </label>
+                        <label>Deskripsi dokumentasi
+                          <textarea name="programs[{{ program_index }}][documentation][{{ documentation_index }}][description]" data-mb-documentation-field="description" rows="3" maxlength="1000">{{ item.description }}</textarea>
+                        </label>
+                        <div class="home-editor-image-field" data-mb-image-control>
+                          <label>URL foto dokumentasi
+                            <input type="text" name="programs[{{ program_index }}][documentation][{{ documentation_index }}][image]" data-mb-documentation-field="image" data-mb-image-url maxlength="500" value="{{ item.image }}">
+                          </label>
+                          <label>Unggah foto pengganti
+                            <input type="file" name="programs[{{ program_index }}][documentation][{{ documentation_index }}][image_file]" data-mb-image-upload="documentation" accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp">
+                          </label>
+                          <img class="history-image-preview" src="{{ item.image }}" alt="Pratinjau {{ item.title or program.name }}" data-mb-preview>
+                        </div>
+                      </div>
+                    </article>
+                  {% endfor %}
+                </div>
+              </div>
+            </details>
+          {% endfor %}
+        </div>
+        <button class="button-secondary history-add-button" type="button" data-mb-add-program>Tambah kegiatan</button>
+      </details>
+
+      <details class="history-editor-section home-editor-section" open>
+        <summary>FAQ dan panduan</summary>
+        <div class="history-form-grid history-form-grid-two">
+          <label>Label FAQ
+            <input name="faq_label" maxlength="100" required value="{{ minat_data.faqLabel }}">
+          </label>
+          <label>Judul FAQ
+            <input name="faq_title" maxlength="180" required value="{{ minat_data.faqTitle }}">
+          </label>
+        </div>
+        <label>Deskripsi FAQ
+          <textarea name="faq_description" rows="3" maxlength="1000" required>{{ minat_data.faqDescription }}</textarea>
+        </label>
+        <input type="hidden" name="faq_count" value="{{ minat_data.faqs|length }}" data-mb-faq-count>
+        <div class="history-repeat-list" data-mb-faq-list>
+          {% for faq in minat_data.faqs %}
+            {% set faq_index = loop.index0 %}
+            <article class="history-repeat-card" data-mb-faq>
+              <div class="history-repeat-heading">
+                <strong data-mb-faq-heading>FAQ {{ loop.index }}</strong>
+                <button class="history-remove-button" type="button" data-mb-remove-faq>Hapus</button>
+              </div>
+              <label>Pertanyaan
+                <input name="faqs[{{ faq_index }}][question]" data-mb-faq-field="question" maxlength="300" required value="{{ faq.question }}">
+              </label>
+              <label>Jawaban
+                <textarea name="faqs[{{ faq_index }}][answer]" data-mb-faq-field="answer" rows="3" maxlength="2000" required>{{ faq.answer }}</textarea>
+              </label>
+            </article>
+          {% endfor %}
+        </div>
+        <button class="button-secondary history-add-button" type="button" data-mb-add-faq>Tambah FAQ</button>
+      </details>
+
+      <div class="form-actions">
+        <button class="button-primary" type="submit">Simpan semua perubahan</button>
+        <small class="field-help">Foto dapat diubah lewat URL atau unggah JPG, PNG, maupun WebP (maks. 5 MB).</small>
+      </div>
+    </form>
+  </section>
+
+  <template data-mb-program-template>
+    <details class="history-repeat-card minat-bakat-program-card" data-mb-program open>
+      <summary class="history-repeat-heading">
+        <strong data-mb-program-heading>Kegiatan baru</strong>
+        <button class="history-remove-button" type="button" data-mb-remove-program>Hapus kegiatan</button>
+      </summary>
+      <div class="history-form-grid history-form-grid-two">
+        <label>Nama kegiatan<input data-mb-field="name" maxlength="120" required></label>
+        <label>Slug URL<input data-mb-field="slug" maxlength="120" required></label>
+        <label>Kategori<input data-mb-field="category" maxlength="100" required></label>
+        <label>Kategori wajib<select data-mb-field="required"><option value="false" selected>Tidak</option><option value="true">Ya</option></select></label>
+      </div>
+      <label>Deskripsi singkat<textarea data-mb-field="description" rows="3" maxlength="1000" required></textarea></label>
+      <label>Detail kegiatan<textarea data-mb-field="details" rows="4" maxlength="2000"></textarea></label>
+      <div class="history-form-grid history-form-grid-two">
+        <label>Teks alternatif foto kartu<input data-mb-field="imageAlt" maxlength="180"></label>
+        <div class="home-editor-image-field" data-mb-image-control>
+          <label>URL foto kartu<input type="text" data-mb-field="image" data-mb-image-url maxlength="500"></label>
+          <label>Unggah foto pengganti<input type="file" data-mb-image-upload="image" accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp"></label>
+          <img class="history-image-preview" alt="Pratinjau foto kartu" data-mb-preview hidden>
+        </div>
+      </div>
+      <div class="minat-bakat-documentation">
+        <div class="history-repeat-heading"><strong>Foto dokumentasi</strong><button class="button-secondary" type="button" data-mb-add-documentation>Tambah dokumentasi</button></div>
+        <input type="hidden" data-mb-documentation-count>
+        <div class="history-repeat-list" data-mb-documentation-list>
+          <article class="history-repeat-card minat-bakat-documentation-card" data-mb-documentation>
+            <div class="history-repeat-heading"><strong data-mb-documentation-heading>Dokumentasi 1</strong><button class="history-remove-button" type="button" data-mb-remove-documentation>Hapus</button></div>
+            <div class="history-form-grid history-form-grid-two">
+              <label>Judul dokumentasi<input data-mb-documentation-field="title" maxlength="180"></label>
+              <label>Teks alternatif foto<input data-mb-documentation-field="alt" maxlength="180"></label>
+              <label>Deskripsi dokumentasi<textarea data-mb-documentation-field="description" rows="3" maxlength="1000"></textarea></label>
+              <div class="home-editor-image-field" data-mb-image-control>
+                <label>URL foto dokumentasi<input type="text" data-mb-documentation-field="image" data-mb-image-url maxlength="500"></label>
+                <label>Unggah foto pengganti<input type="file" data-mb-image-upload="documentation" accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp"></label>
+                <img class="history-image-preview" alt="Pratinjau foto dokumentasi" data-mb-preview hidden>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </details>
+  </template>
+
+  <template data-mb-documentation-template>
+    <article class="history-repeat-card minat-bakat-documentation-card" data-mb-documentation>
+      <div class="history-repeat-heading"><strong data-mb-documentation-heading>Dokumentasi</strong><button class="history-remove-button" type="button" data-mb-remove-documentation>Hapus</button></div>
+      <div class="history-form-grid history-form-grid-two">
+        <label>Judul dokumentasi<input data-mb-documentation-field="title" maxlength="180"></label>
+        <label>Teks alternatif foto<input data-mb-documentation-field="alt" maxlength="180"></label>
+        <label>Deskripsi dokumentasi<textarea data-mb-documentation-field="description" rows="3" maxlength="1000"></textarea></label>
+        <div class="home-editor-image-field" data-mb-image-control>
+          <label>URL foto dokumentasi<input type="text" data-mb-documentation-field="image" data-mb-image-url maxlength="500"></label>
+          <label>Unggah foto pengganti<input type="file" data-mb-image-upload="documentation" accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp"></label>
+          <img class="history-image-preview" alt="Pratinjau foto dokumentasi" data-mb-preview hidden>
+        </div>
+      </div>
+    </article>
+  </template>
+
+  <template data-mb-faq-template>
+    <article class="history-repeat-card" data-mb-faq>
+      <div class="history-repeat-heading"><strong data-mb-faq-heading>FAQ</strong><button class="history-remove-button" type="button" data-mb-remove-faq>Hapus</button></div>
+      <label>Pertanyaan<input data-mb-faq-field="question" maxlength="300" required></label>
+      <label>Jawaban<textarea data-mb-faq-field="answer" rows="3" maxlength="2000" required></textarea></label>
+    </article>
+  </template>
+
+  <script src="{{ url_for('static', filename='minat-bakat-content-editor.js', v='1') }}" defer></script>
+{% endblock %}

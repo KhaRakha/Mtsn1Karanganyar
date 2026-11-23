@@ -1,0 +1,42 @@
+{% extends "admin/base.html" %}
+
+{% block title %}Direktori Tendik | Admin MTsN 1 Karanganyar{% endblock %}
+
+{% block content %}
+  <div class="page-heading">
+    <div>
+      <span class="page-kicker">WARGA SEKOLAH</span>
+      <h1>Direktori Tenaga Kependidikan</h1>
+      <p>Kelola nama, jabatan, foto, dan urutan tampilan tenaga kependidikan pada website.</p>
+    </div>
+    <a class="button-primary" href="{{ url_for('tendik_new') }}"><svg class="admin-icon" aria-hidden="true"><use href="#icon-plus"></use></svg> Tambah Tendik</a>
+  </div>
+  <section class="panel staff-directory-panel">
+    {% if entries %}
+      <div class="table-wrap">
+        <table class="staff-directory-table">
+          <thead><tr><th>Foto</th><th>Nama</th><th>Jabatan</th><th>Urutan</th><th class="actions-heading">Aksi</th></tr></thead>
+          <tbody>
+            {% for entry in entries %}
+              <tr>
+                <td data-label="Foto"><img class="guru-admin-thumbnail" src="{{ entry.image_url }}" alt=""></td>
+                <td class="table-title" data-label="Nama">{{ entry.name }}</td>
+                <td data-label="Jabatan">{{ entry.role }}</td>
+                <td data-label="Urutan">{{ entry.sort_order }}</td>
+                <td class="row-actions" data-label="Aksi">
+                  <a class="table-action" href="{{ url_for('tendik_edit', tendik_id=entry.id) }}">Edit</a>
+                  <form method="post" action="{{ url_for('tendik_delete', tendik_id=entry.id) }}">
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                    <button class="table-action danger" type="button" data-admin-confirm-delete data-confirm-kind="data tenaga kependidikan" data-confirm-title="{{ entry.name }}">Hapus</button>
+                  </form>
+                </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    {% else %}
+      <div class="empty-state"><span aria-hidden="true"><svg class="admin-icon"><use href="#icon-id-card"></use></svg></span><strong>Belum ada data tenaga kependidikan</strong><p>Tambahkan tendik agar tampil di direktori website.</p></div>
+    {% endif %}
+  </section>
+{% endblock %}

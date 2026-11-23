@@ -1,0 +1,162 @@
+.program-khusus-choice {
+  position: relative;
+  isolation: isolate;
+  display: block;
+  min-width: 0;
+  border-radius: 20px;
+  color: inherit;
+  text-decoration: none;
+  transition: transform 220ms ease;
+}
+
+.program-khusus-overview .content-info-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.program-khusus-overview .program-khusus-choice .content-info-card {
+  position: relative;
+  isolation: isolate;
+  min-height: 270px;
+  padding: 28px;
+  overflow: hidden;
+  border: 1px solid #d2e7db;
+  border-top: 4px solid #ffdf57;
+  border-radius: 20px;
+  background:
+    radial-gradient(circle at 100% 0%, rgb(255 239 60 / 20%), transparent 34%),
+    linear-gradient(135deg, #f5fbf7, #e8f5ed 72%, #f7fbf8);
+  box-shadow: 0 12px 30px rgb(7 61 51 / 7%);
+  transition: border-color 220ms ease, box-shadow 220ms ease, background 220ms ease;
+}
+
+.program-khusus-overview .program-khusus-choice .content-info-card::after {
+  position: absolute;
+  z-index: 0;
+  right: -74px;
+  bottom: -132px;
+  width: 250px;
+  height: 250px;
+  border: 1px solid rgb(7 107 86 / 12%);
+  border-radius: 50%;
+  box-shadow: 0 0 0 22px rgb(7 107 86 / 4%), 0 0 0 46px rgb(7 107 86 / 3%);
+  content: "";
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(.88);
+  transition: opacity 240ms ease, transform 240ms ease;
+}
+
+.program-khusus-choice:hover .content-info-card::after,
+.program-khusus-choice:focus-visible .content-info-card::after {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.program-khusus-overview .content-info-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.program-khusus-overview .content-info-card-top {
+  color: #08715c;
+  font-size: 13px;
+}
+
+.program-khusus-overview .content-info-card-top span:last-child {
+  width: 44px;
+  height: 44px;
+  background: #08715c;
+  color: #fff;
+  font-size: 20px;
+  transition: background 220ms ease, color 220ms ease, transform 220ms ease;
+}
+
+.program-khusus-overview .content-info-card h3 {
+  margin: 36px 0 10px;
+  color: #073f35;
+  font-size: clamp(21px, 2.4vw, 27px);
+  letter-spacing: -.04em;
+}
+
+.program-khusus-overview .content-info-card p {
+  max-width: 390px;
+  color: #53665e;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.program-khusus-choice::after {
+  position: absolute;
+  right: 28px;
+  bottom: 24px;
+  left: 28px;
+  color: #08715c;
+  content: "Lihat detail program  →";
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: .01em;
+  transition: color 220ms ease, letter-spacing 220ms ease;
+}
+
+.program-khusus-choice:hover {
+  transform: translateY(-5px);
+}
+
+.program-khusus-choice:hover .content-info-card {
+  border-color: #9dcbb4;
+  box-shadow: 0 20px 38px rgb(7 61 51 / 12%);
+}
+
+.program-khusus-choice:hover .content-info-card-top span:last-child {
+  transform: rotate(45deg);
+  background: #ffdf57;
+  color: #073f35;
+}
+
+.program-khusus-choice:hover::after {
+  color: #064b3e;
+  letter-spacing: .035em;
+}
+
+.program-khusus-choice:focus-visible {
+  outline: 3px solid #08715c;
+  outline-offset: 5px;
+}
+
+@media (max-width: 700px) {
+  .program-khusus-overview .content-info-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .program-khusus-overview .program-khusus-choice .content-info-card {
+    min-height: 250px;
+    padding: 24px;
+  }
+
+  .program-khusus-overview .content-info-card h3 {
+    margin-top: 30px;
+    font-size: 23px;
+  }
+
+  .program-khusus-choice::after {
+    right: 24px;
+    bottom: 20px;
+    left: 24px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .program-khusus-choice,
+  .program-khusus-choice::after,
+  .program-khusus-choice .content-info-card,
+  .program-khusus-choice .content-info-card-top span:last-child,
+  .program-khusus-choice .content-info-card::after {
+    transition: none;
+  }
+
+  .program-khusus-choice:hover {
+    transform: none;
+  }
+}

@@ -1,0 +1,68 @@
+{% extends "admin/base.html" %}
+
+{% block title %}Navigasi Website | Admin MTsN 1 Karanganyar{% endblock %}
+
+{% block content %}
+  <div class="page-heading">
+    <div>
+      <span class="page-kicker">KONTEN WEBSITE</span>
+      <h1>Navigasi Website</h1>
+      <p>Atur kategori dan submenu untuk menu Tentang, Akademik, dan Kegiatan. Perubahan langsung dipakai oleh website.</p>
+    </div>
+    <div class="form-actions">
+      <a class="button-secondary" href="{{ url_for('navigation_item_new') }}"><svg class="admin-icon" aria-hidden="true"><use href="#icon-plus"></use></svg> Tambah Submenu</a>
+      <a class="button-primary" href="{{ url_for('navigation_group_new') }}"><svg class="admin-icon" aria-hidden="true"><use href="#icon-plus"></use></svg> Tambah Kategori</a>
+    </div>
+  </div>
+
+  {% if groups %}
+    {% for group in groups %}
+      <section class="panel navigation-group-panel">
+        <div class="panel-heading">
+          <div>
+            <span class="page-kicker">{{ group.menu_label|upper }} · URUTAN {{ group.sort_order }}</span>
+            <h2>{{ group.title }}</h2>
+          </div>
+          <div class="row-actions">
+            <a class="table-action" href="{{ url_for('navigation_group_edit', group_id=group.id) }}">Edit kategori</a>
+            <a class="table-action" href="{{ url_for('navigation_item_new', group_id=group.id) }}">Tambah submenu</a>
+            <form method="post" action="{{ url_for('navigation_group_delete', group_id=group.id) }}">
+              <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+              <button class="table-action danger" type="button" data-admin-confirm-delete data-confirm-kind="kategori navigasi" data-confirm-title="{{ group.title }}" data-confirm-message="Kategori &quot;{{ group.title }}&quot; beserta semua submenu di dalamnya akan dihapus permanen. Lanjutkan?">Hapus kategori</button>
+            </form>
+          </div>
+        </div>
+
+        {% if group.submenus %}
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Urutan</th><th>Nama submenu</th><th>Alamat halaman</th><th class="actions-heading">Aksi</th></tr></thead>
+              <tbody>
+                {% for item in group.submenus %}
+                  <tr>
+                    <td data-label="Urutan">{{ item.sort_order }}</td>
+                    <td class="table-title" data-label="Nama submenu">{{ item.label }}</td>
+                    <td data-label="Alamat halaman">{{ item.href }}</td>
+                    <td class="row-actions" data-label="Aksi">
+                      <a class="table-action" href="{{ url_for('navigation_item_edit', item_id=item.id) }}">Edit</a>
+                      <form method="post" action="{{ url_for('navigation_item_delete', item_id=item.id) }}">
+                        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                        <button class="table-action danger" type="button" data-admin-confirm-delete data-confirm-kind="submenu" data-confirm-title="{{ item.label }}">Hapus</button>
+                      </form>
+                    </td>
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        {% else %}
+          <div class="empty-state"><strong>Belum ada submenu</strong><p>Tambahkan submenu untuk kategori ini.</p></div>
+        {% endif %}
+      </section>
+    {% endfor %}
+  {% else %}
+    <section class="panel">
+      <div class="empty-state"><strong>Belum ada kategori navigasi</strong><p>Tambahkan kategori agar dapat ditampilkan di menu website.</p></div>
+    </section>
+  {% endif %}
+{% endblock %}

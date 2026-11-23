@@ -1,0 +1,67 @@
+.komite-card-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.komite-card-grid .content-info-card {
+  min-height: 220px;
+  border-top: 4px solid #087d65;
+}
+
+.komite-role-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.komite-role-list article {
+  display: flex;
+  gap: 14px;
+  padding: 22px;
+  border: 1px solid #d5ebdc;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 10px 24px rgb(7 61 51 / 7%);
+}
+
+.komite-role-list article > span {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  flex: 0 0 auto;
+  place-items: center;
+  border-radius: 10px;
+  background: #fff3a6;
+  color: #087d65;
+  font-weight: 800;
+}
+
+.komite-role-list h3 {
+  margin: 0;
+  color: #000;
+  font-size: 16px;
+}
+
+.komite-role-list p {
+  margin: 8px 0 0;
+  color: #527367;
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+@media (max-width: 900px) {
+  .komite-card-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .komite-role-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .komite-card-grid {
+    grid-template-columns: 1fr;
+  }
+}

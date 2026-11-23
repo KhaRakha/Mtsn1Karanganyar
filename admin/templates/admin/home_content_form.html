@@ -1,0 +1,546 @@
+{% extends "admin/base.html" %}
+
+{% block title %}Kelola Beranda Website | Admin MTsN 1 Karanganyar{% endblock %}
+
+{% block content %}
+  {% set gallery_categories = ['Pembelajaran', 'Upacara & Karakter', 'Keagamaan', 'Ekstrakurikuler'] %}
+  <div class="page-heading">
+    <div>
+      <span class="page-kicker">KONTEN BERANDA WEBSITE</span>
+      <h1>Kelola Beranda Website</h1>
+      <p>Ubah teks, gambar, dan bagian-bagian utama yang tampil pada halaman depan website.</p>
+    </div>
+  </div>
+
+  <section class="panel form-panel home-editor-panel">
+    {% if errors %}
+      <div class="form-errors" role="alert">
+        {% for error in errors %}<p>{{ error }}</p>{% endfor %}
+      </div>
+    {% endif %}
+    <form method="post" class="content-form" enctype="multipart/form-data" data-home-editor data-open-section="{{ request.form.get('save_section', '') }}">
+      <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+      <p class="field-help">Buka bagian yang ingin diubah. Tombol simpan tersedia di dalam setiap bagian.</p>
+      <div id="home-publication" class="publication-status-toolbar">
+        <label for="status">Status halaman
+          <select id="status" name="status">
+            <option value="draft" {% if home_values.status == 'draft' %}selected{% endif %}>Draf</option>
+            <option value="published" {% if home_values.status == 'published' %}selected{% endif %}>Terbit</option>
+          </select>
+        </label>
+        <button class="button-primary" type="submit" name="save_section" value="home-publication">Simpan status</button>
+        <small class="field-help">Status dan perubahan konten beranda disimpan bersama.</small>
+      </div>
+
+      <details id="home-hero" class="history-editor-section home-editor-section" name="home-editor-sections" data-home-section>
+        <summary>Hero / Banner utama</summary>
+        <p class="field-help">Judul dan deskripsi tampil di atas gambar banner. Urutan gambar mengikuti urutan daftar.</p>
+        <label for="hero_title">Judul hero
+          <textarea id="hero_title" name="hero_title" rows="3" maxlength="180" required>{{ home_values.hero.title }}</textarea>
+        </label>
+        <label for="hero_description">Deskripsi hero
+          <textarea id="hero_description" name="hero_description" rows="3" maxlength="2000" required>{{ home_values.hero.description }}</textarea>
+        </label>
+        <div class="history-repeat-list" data-home-repeater="heroSlides" data-minimum="1">
+          {% for slide in home_values.heroSlides %}
+            <article class="history-repeat-card" data-home-item>
+              <div class="history-repeat-heading">
+                <strong>Slide hero {{ loop.index }}</strong>
+                <button class="history-remove-button" type="button" data-remove-home-item>Hapus</button>
+              </div>
+              <div class="history-form-grid history-form-grid-two">
+                <input type="hidden" name="hero_slide_image" value="{{ slide.image }}">
+                <input type="hidden" name="hero_slide_video" value="{{ slide.video or '' }}">
+                <label>Label slide
+                  <input name="hero_slide_label" maxlength="100" required value="{{ slide.label }}">
+                </label>
+                <label>Jenis slide
+                  <select name="hero_slide_type">
+                    <option value="photo" {% if slide.type != 'video' %}selected{% endif %}>Foto</option>
+                    <option value="video" {% if slide.type == 'video' %}selected{% endif %}>Video</option>
+                  </select>
+                </label>
+                <label>Unggah gambar / poster
+                  <input type="file" accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp" data-home-upload="hero-slide">
+                </label>
+                <label>Unggah video MP4
+                  <input type="file" accept=".mp4,video/mp4" data-home-upload="hero-video">
+                </label>
+              </div>
+              {% if slide.type == 'video' and slide.video %}
+                <video class="history-video-preview" controls muted playsinline><source src="{{ slide.video }}" type="video/mp4"></video>
+              {% elif slide.image %}
+                <img class="history-image-preview" src="{{ slide.image }}" alt="Pratinjau {{ slide.label }}">
+              {% endif %}
+            </article>
+          {% endfor %}
+        </div>
+        <button class="button-secondary history-add-button" type="button" data-add-home-item="heroSlides">Tambah slide</button>
+        <template data-home-template="heroSlides">
+          <article class="history-repeat-card" data-home-item>
+            <div class="history-repeat-heading">
+              <strong>Slide hero baru</strong>
+              <button class="history-remove-button" type="button" data-remove-home-item>Hapus</button>
+            </div>
+            <div class="history-form-grid history-form-grid-two">
+              <label>Label slide<input name="hero_slide_label" maxlength="100" required></label>
+              <label>Jenis slide
+                <select name="hero_slide_type"><option value="photo">Foto</option><option value="video">Video</option></select>
+              </label>
+              <input type="hidden" name="hero_slide_image" value="">
+              <input type="hidden" name="hero_slide_video" value="">
+              <label>Unggah gambar / poster<input type="file" accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp" data-home-upload="hero-slide"></label>
+              <label>Unggah video MP4<input type="file" accept=".mp4,video/mp4" data-home-upload="hero-video"></label>
+            </div>
+          </article>
+        </template>
+        <small class="field-help">Pilih jenis slide Foto atau Video, lalu unggah file yang sesuai. Gambar JPG, PNG, WebP maksimal 5 MB; video MP4 maksimal 25 MB.</small>
+        <div class="home-section-actions">
+          <button class="button-primary" type="submit" name="save_section" value="home-hero">Simpan perubahan</button>
+        </div>
+      </details>
+
+      <details id="home-welcome" class="history-editor-section home-editor-section" name="home-editor-sections" data-home-section>
+        <summary>Sambutan Kepala Madrasah</summary>
+        <div class="history-form-grid history-form-grid-two">
+          <label>Judul sambutan
+            <input name="welcome_title" maxlength="180" required value="{{ home_values.welcome.title }}">
+          </label>
+          <label>Nama kepala madrasah
+            <input name="welcome_name" maxlength="180" required value="{{ home_values.welcome.name }}">
+          </label>
+          <input type="hidden" name="welcome_image" value="{{ home_values.welcome.image }}">
+          <label>Unggah foto kepala madrasah
+            <input type="file" name="welcome_image_file" accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp">
+          </label>
+          <label>Salam pembuka
+            <input name="welcome_greeting" maxlength="180" required value="{{ home_values.welcome.greeting }}">
+          </label>
+          <label>Salam penutup
+            <input name="welcome_closing" maxlength="180" required value="{{ home_values.welcome.closing }}">
+          </label>
+        </div>
+        {% if home_values.welcome.image %}<img class="history-image-preview" src="{{ home_values.welcome.image }}" alt="Foto kepala madrasah">{% endif %}
+        <label>Isi sambutan
+          <textarea name="welcome_body" rows="5" maxlength="3000" required>{{ home_values.welcome.body }}</textarea>
+        </label>
+        <small class="field-help">Unggah foto JPG, PNG, atau WebP (maks. 5 MB). Jika tidak ada file baru, foto saat ini tetap digunakan.</small>
+        <div class="home-section-actions">
+          <button class="button-primary" type="submit" name="save_section" value="home-welcome">Simpan perubahan</button>
+        </div>
+      </details>
+
+      <details id="home-statistics" class="history-editor-section home-editor-section" name="home-editor-sections" data-home-section>
+        <summary>Statistik Madrasah</summary>
+        <div class="history-repeat-list" data-home-repeater="statistics" data-minimum="1">
+          {% for statistic in home_values.statistics %}
+            <article class="history-repeat-card" data-home-item>
+              <div class="history-repeat-heading"><strong>Statistik {{ loop.index }}</strong><button class="history-remove-button" type="button" data-remove-home-item>Hapus</button></div>
+              <div class="history-form-grid history-form-grid-two">
+                <label>Angka
+                  <input type="number" name="statistics_value" min="0" max="999999999" required value="{{ statistic.value }}">
+                </label>
+                <label>Label
+                  <input name="statistics_label" maxlength="100" required value="{{ statistic.label }}">
+                </label>
+              </div>
+            </article>
+          {% endfor %}
+        </div>
+        <button class="button-secondary history-add-button" type="button" data-add-home-item="statistics">Tambah statistik</button>
+        <template data-home-template="statistics">
+          <article class="history-repeat-card" data-home-item>
+            <div class="history-repeat-heading"><strong>Statistik baru</strong><button class="history-remove-button" type="button" data-remove-home-item>Hapus</button></div>
+            <div class="history-form-grid history-form-grid-two">
+              <label>Angka<input type="number" name="statistics_value" min="0" max="999999999" required></label>
+              <label>Label<input name="statistics_label" maxlength="100" required></label>
+            </div>
+          </article>
+        </template>
+        <div class="home-section-actions">
+          <button class="button-primary" type="submit" name="save_section" value="home-statistics">Simpan perubahan</button>
+        </div>
+      </details>
+
+      <details id="home-programs" class="history-editor-section home-editor-section" name="home-editor-sections" data-home-section>
+        <summary>Program &amp; Keunggulan Pendidikan</summary>
+        <div class="history-form-grid history-form-grid-two">
+          <label>Label kecil
+            <input name="home_programs_eyebrow" maxlength="100" required value="{{ home_values.homeSections.programs.eyebrow }}">
+          </label>
+          <label>Judul bagian
+            <input name="home_programs_title" maxlength="180" required value="{{ home_values.homeSections.programs.title }}">
+          </label>
+        </div>
+        <div class="history-repeat-list" data-home-repeater="programs" data-minimum="1">
+          {% for program in home_values.programs %}
+            <article class="history-repeat-card" data-home-item>
+              <div class="history-repeat-heading"><strong>Program {{ loop.index }}</strong><button class="history-remove-button" type="button" data-remove-home-item>Hapus</button></div>
+              <div class="history-form-grid history-form-grid-three">
+                <label>Nomor
+                  <input name="program_number" maxlength="10" required value="{{ program.number }}">
+                </label>
+                <label>Judul program
+                  <input name="program_title" maxlength="180" required value="{{ program.title }}">
+                </label>
+                <label>Deskripsi
+                  <textarea name="program_description" rows="3" maxlength="1000" required>{{ program.description }}</textarea>
+                </label>
+              </div>
+              <strong class="home-editor-subtitle">Tiga gambar pendukung</strong>
+              <div class="history-form-grid history-form-grid-three">
+                {% for visual in program.visuals %}
+                  <div class="home-editor-image-field">
+                    <input type="hidden" name="program_visual_src" value="{{ visual.src }}">
+                    <label>Teks alternatif
+                      <input name="program_visual_alt" maxlength="180" required value="{{ visual.alt }}">
+                    </label>
+                    <label>Unggah gambar
+                      <input type="file" accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp" data-home-upload="program-visual">
+                    </label>
+                  </div>
+                {% endfor %}
+              </div>
+            </article>
+          {% endfor %}
+        </div>
+        <button class="button-secondary history-add-button" type="button" data-add-home-item="programs">Tambah program</button>
+        <template data-home-template="programs">
+          <article class="history-repeat-card" data-home-item>
+            <div class="history-repeat-heading"><strong>Program baru</strong><button class="history-remove-button" type="button" data-remove-home-item>Hapus</button></div>
+            <div class="history-form-grid history-form-grid-three">
+              <label>Nomor<input name="program_number" maxlength="10" required></label>
+              <label>Judul program<input name="program_title" maxlength="180" required></label>
+              <label>Deskripsi<textarea name="program_description" rows="3" maxlength="1000" required></textarea></label>
+            </div>
+            <strong class="home-editor-subtitle">Tiga gambar pendukung</strong>
+            <div class="history-form-grid history-form-grid-three">
+              {% for visual_index in range(3) %}
+                <div class="home-editor-image-field">
+                  <input type="hidden" name="program_visual_src" value="">
+                  <label>Teks alternatif<input name="program_visual_alt" maxlength="180" required></label>
+                  <label>Unggah gambar<input type="file" accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp" data-home-upload="program-visual"></label>
+                </div>
+              {% endfor %}
+            </div>
+          </article>
+        </template>
+        <small class="field-help">Setiap program memiliki tiga gambar. Unggah file JPG, PNG, atau WebP (maks. 5 MB); gambar lama tetap digunakan jika tidak diganti.</small>
+        <div class="home-section-actions">
+          <button class="button-primary" type="submit" name="save_section" value="home-programs">Simpan perubahan</button>
+        </div>
+      </details>
+
+      <details id="home-vision" class="history-editor-section home-editor-section" name="home-editor-sections" data-home-section>
+        <summary>Visi &amp; Misi pada Beranda</summary>
+        <div class="history-form-grid history-form-grid-two">
+          <label>Label kecil
+            <input name="home_vision_eyebrow" maxlength="100" required value="{{ home_values.homeSections.vision.eyebrow }}">
+          </label>
+          <label>Judul bagian
+            <input name="home_vision_title" maxlength="180" required value="{{ home_values.homeSections.vision.title }}">
+          </label>
+          <label>Deskripsi bagian
+            <textarea name="home_vision_description" rows="3" maxlength="1000" required>{{ home_values.homeSections.vision.description }}</textarea>
+          </label>
+          <label>Label visi
+            <input name="home_vision_label" maxlength="100" required value="{{ home_values.homeSections.vision.visionLabel }}">
+          </label>
+          <label>Pernyataan visi
+            <textarea name="home_vision_statement" rows="3" maxlength="500" required>{{ home_values.homeSections.vision.statement }}</textarea>
+          </label>
+          <label>Label misi
+            <input name="home_mission_label" maxlength="100" required value="{{ home_values.homeSections.vision.missionLabel }}">
+          </label>
+          <label>Teks tautan visi dan misi
+            <input name="home_vision_link_label" maxlength="120" required value="{{ home_values.homeSections.vision.linkLabel }}">
+          </label>
+          <label>Alamat tautan visi dan misi
+            <input name="home_vision_link_url" maxlength="500" required value="{{ home_values.homeSections.vision.linkUrl }}">
+          </label>
+        </div>
+        <strong class="home-editor-subtitle">Daftar nilai misi</strong>
+        <div class="history-repeat-list" data-home-repeater="values" data-minimum="1">
+          {% for value in home_values['values'] %}
+            <article class="history-repeat-card" data-home-item>
+              <div class="history-repeat-heading"><strong>Nilai {{ loop.index }}</strong><button class="history-remove-button" type="button" data-remove-home-item>Hapus</button></div>
+              <div class="history-form-grid history-form-grid-three">
+                <label>Nomor<input name="values_number" maxlength="10" required value="{{ value[0] }}"></label>
+                <label>Judul<input name="values_title" maxlength="180" required value="{{ value[1] }}"></label>
+                <label>Keterangan<input name="values_caption" maxlength="100" required value="{{ value[2] }}"></label>
+              </div>
+            </article>
+          {% endfor %}
+        </div>
+        <button class="button-secondary history-add-button" type="button" data-add-home-item="values">Tambah nilai</button>
+        <template data-home-template="values">
+          <article class="history-repeat-card" data-home-item>
+            <div class="history-repeat-heading"><strong>Nilai baru</strong><button class="history-remove-button" type="button" data-remove-home-item>Hapus</button></div>
+            <div class="history-form-grid history-form-grid-three">
+              <label>Nomor<input name="values_number" maxlength="10" required></label>
+              <label>Judul<input name="values_title" maxlength="180" required></label>
+              <label>Keterangan<input name="values_caption" maxlength="100" required></label>
+            </div>
+          </article>
+        </template>
+        <div class="home-section-actions">
+          <button class="button-primary" type="submit" name="save_section" value="home-vision">Simpan perubahan</button>
+        </div>
+      </details>
+
+      <details id="home-news" class="history-editor-section home-editor-section" name="home-editor-sections" data-home-section>
+        <summary>Judul Berita &amp; Prestasi</summary>
+        <p class="field-help">Jika belum ada item Terbit, Beranda menggunakan berita dan prestasi bawaan di bawah. Item Terbit dikelola melalui menu Berita atau Prestasi dan akan menggantikan konten bawaan.</p>
+        <div class="history-form-grid history-form-grid-two">
+          <label>Label kecil
+            <input name="home_news_eyebrow" maxlength="100" required value="{{ home_values.homeSections.news.eyebrow }}">
+          </label>
+          <label>Judul bagian
+            <input name="home_news_title" maxlength="180" required value="{{ home_values.homeSections.news.title }}">
+          </label>
+          <label>Deskripsi bagian
+            <textarea name="home_news_description" rows="3" maxlength="1000" required>{{ home_values.homeSections.news.description }}</textarea>
+          </label>
+          <label>Label berita
+            <input name="home_news_label" maxlength="100" required value="{{ home_values.homeSections.news.newsLabel }}">
+          </label>
+          <label>Teks tautan berita
+            <input name="home_news_link_label" maxlength="120" required value="{{ home_values.homeSections.news.newsLinkLabel }}">
+          </label>
+          <label>Alamat halaman berita
+            <input name="home_news_link_url" maxlength="500" required value="{{ home_values.homeSections.news.newsLinkUrl }}">
+          </label>
+          <label>Label prestasi
+            <input name="home_achievements_label" maxlength="100" required value="{{ home_values.homeSections.news.achievementsLabel }}">
+          </label>
+          <label>Teks tautan prestasi
+            <input name="home_achievements_link_label" maxlength="120" required value="{{ home_values.homeSections.news.achievementsLinkLabel }}">
+          </label>
+          <label>Alamat halaman prestasi
+            <input name="home_achievements_link_url" maxlength="500" required value="{{ home_values.homeSections.news.achievementsLinkUrl }}">
+          </label>
+        </div>
+        <div class="page-heading-actions">
+          <a class="button-secondary" href="{{ url_for('content_list', content_type='berita') }}">Kelola berita</a>
+          <a class="button-secondary" href="{{ url_for('content_list', content_type='prestasi') }}">Kelola prestasi</a>
+        </div>
+        <strong class="home-editor-subtitle">Berita bawaan saat belum ada berita Terbit</strong>
+        <div class="history-form-grid history-form-grid-two">
+          <label>Judul berita
+            <input name="fallback_news_title" maxlength="180" required value="{{ home_values.fallbackNews.title }}">
+          </label>
+          <label>Tanggal berita
+            <input type="date" name="fallback_news_date" required value="{{ home_values.fallbackNews.dateTime }}">
+          </label>
+          <label>Ringkasan berita
+            <textarea name="fallback_news_summary" rows="3" maxlength="1000" required>{{ home_values.fallbackNews.summary }}</textarea>
+          </label>
+          <input type="hidden" name="fallback_news_image" value="{{ home_values.fallbackNews.image }}">
+          <label>Unggah gambar berita
+            <input type="file" name="fallback_news_image_file" accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp">
+          </label>
+        </div>
+        {% if home_values.fallbackNews.image %}<img class="history-image-preview" src="{{ home_values.fallbackNews.image }}" alt="Pratinjau berita bawaan">{% endif %}
+        <strong class="home-editor-subtitle">Prestasi bawaan saat belum ada prestasi Terbit</strong>
+        <div class="history-repeat-list" data-home-repeater="fallbackAchievements" data-minimum="1">
+          {% for item in home_values.fallbackAchievements %}
+            <article class="history-repeat-card" data-home-item>
+              <div class="history-repeat-heading"><strong>Prestasi bawaan {{ loop.index }}</strong><button class="history-remove-button" type="button" data-remove-home-item>Hapus</button></div>
+              <div class="history-form-grid history-form-grid-two">
+                <input type="hidden" name="fallback_achievement_image" value="{{ item.image }}">
+                <label>Kategori<input name="fallback_achievement_category" maxlength="100" required value="{{ item.category }}"></label>
+                <label>Judul prestasi<input name="fallback_achievement_title" maxlength="180" required value="{{ item.title }}"></label>
+                <label>Tanggal prestasi<input type="date" name="fallback_achievement_date" required value="{{ item.dateTime }}"></label>
+                <label>Unggah gambar<input type="file" accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp" data-home-upload="fallback-achievement"></label>
+              </div>
+              {% if item.image %}<img class="history-image-preview" src="{{ item.image }}" alt="Pratinjau {{ item.title }}">{% endif %}
+            </article>
+          {% endfor %}
+        </div>
+        <button class="button-secondary history-add-button" type="button" data-add-home-item="fallbackAchievements">Tambah prestasi bawaan</button>
+        <template data-home-template="fallbackAchievements">
+          <article class="history-repeat-card" data-home-item>
+            <div class="history-repeat-heading"><strong>Prestasi bawaan baru</strong><button class="history-remove-button" type="button" data-remove-home-item>Hapus</button></div>
+            <div class="history-form-grid history-form-grid-two">
+              <input type="hidden" name="fallback_achievement_image" value="">
+              <label>Kategori<input name="fallback_achievement_category" maxlength="100" required></label>
+              <label>Judul prestasi<input name="fallback_achievement_title" maxlength="180" required></label>
+              <label>Tanggal prestasi<input type="date" name="fallback_achievement_date" required></label>
+              <label>Unggah gambar<input type="file" accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp" data-home-upload="fallback-achievement"></label>
+            </div>
+          </article>
+        </template>
+        <div class="home-section-actions">
+          <button class="button-primary" type="submit" name="save_section" value="home-news">Simpan perubahan</button>
+        </div>
+      </details>
+
+      <details id="home-gallery" class="history-editor-section home-editor-section" name="home-editor-sections" data-home-section>
+        <summary>Galeri Kegiatan</summary>
+        <div class="history-form-grid history-form-grid-two">
+          <label>Label kecil
+            <input name="home_gallery_eyebrow" maxlength="100" required value="{{ home_values.homeSections.gallery.eyebrow }}">
+          </label>
+          <label>Judul galeri
+            <input name="home_gallery_title" maxlength="180" required value="{{ home_values.homeSections.gallery.title }}">
+          </label>
+        </div>
+        <div class="history-repeat-list" data-home-repeater="gallery" data-minimum="1">
+          {% for item in home_values.gallery %}
+            <article class="history-repeat-card" data-home-item>
+              <div class="history-repeat-heading"><strong>Foto galeri {{ loop.index }}</strong><button class="history-remove-button" type="button" data-remove-home-item>Hapus</button></div>
+              <div class="history-form-grid history-form-grid-two">
+                <input type="hidden" name="gallery_image" value="{{ item.image }}">
+                <input type="hidden" name="gallery_position" value="{{ item.imagePosition or '50% 50%' }}" data-gallery-position>
+                <label>Judul foto<input name="gallery_title" maxlength="180" required value="{{ item.title }}"></label>
+                <label>Kategori
+                  <select name="gallery_category" required>
+                    {% if item.category not in gallery_categories %}
+                      <option value="{{ item.category }}" selected>Kategori saat ini: {{ item.category }}</option>
+                    {% endif %}
+                    {% for category in gallery_categories %}
+                      <option value="{{ category }}" {% if item.category == category %}selected{% endif %}>{{ category }}</option>
+                    {% endfor %}
+                  </select>
+                </label>
+                <label>Unggah gambar<input type="file" accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp" data-home-upload="gallery"></label>
+              </div>
+              <div class="home-gallery-crop" data-gallery-crop>
+                <div class="home-gallery-crop-frame">
+                  <img data-gallery-preview src="{{ item.image }}" alt="Pratinjau {{ item.title }}" {% if not item.image %}hidden{% endif %}>
+                  <span data-gallery-placeholder {% if item.image %}hidden{% endif %}>Pratinjau foto akan muncul di sini</span>
+                </div>
+                <div class="home-gallery-crop-controls">
+                  <label><span>Posisi horizontal <output data-gallery-position-x-value>50%</output></span>
+                    <input type="range" min="0" max="100" step="1" value="50" data-gallery-position-x>
+                  </label>
+                  <label><span>Posisi vertikal <output data-gallery-position-y-value>50%</output></span>
+                    <input type="range" min="0" max="100" step="1" value="50" data-gallery-position-y>
+                  </label>
+                </div>
+              </div>
+            </article>
+          {% endfor %}
+        </div>
+        <button class="button-secondary history-add-button" type="button" data-add-home-item="gallery">Tambah foto galeri</button>
+        <template data-home-template="gallery">
+          <article class="history-repeat-card" data-home-item>
+            <div class="history-repeat-heading"><strong>Foto galeri baru</strong><button class="history-remove-button" type="button" data-remove-home-item>Hapus</button></div>
+            <div class="history-form-grid history-form-grid-two">
+              <input type="hidden" name="gallery_image" value="">
+              <input type="hidden" name="gallery_position" value="50% 50%" data-gallery-position>
+              <label>Judul foto<input name="gallery_title" maxlength="180" required></label>
+              <label>Kategori
+                <select name="gallery_category" required>
+                  <option value="" selected disabled>Pilih kategori</option>
+                  {% for category in gallery_categories %}
+                    <option value="{{ category }}">{{ category }}</option>
+                  {% endfor %}
+                </select>
+                <small class="field-help">Pilihan: Pembelajaran, Upacara &amp; Karakter, Keagamaan, Ekstrakurikuler.</small>
+              </label>
+              <label>Unggah gambar<input type="file" accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp" data-home-upload="gallery"></label>
+            </div>
+            <div class="home-gallery-crop" data-gallery-crop>
+              <div class="home-gallery-crop-frame">
+                <img data-gallery-preview alt="Pratinjau foto galeri" hidden>
+                <span data-gallery-placeholder>Pratinjau foto akan muncul di sini</span>
+              </div>
+              <div class="home-gallery-crop-controls">
+                <label><span>Posisi horizontal <output data-gallery-position-x-value>50%</output></span>
+                  <input type="range" min="0" max="100" step="1" value="50" data-gallery-position-x>
+                </label>
+                <label><span>Posisi vertikal <output data-gallery-position-y-value>50%</output></span>
+                  <input type="range" min="0" max="100" step="1" value="50" data-gallery-position-y>
+                </label>
+              </div>
+            </div>
+          </article>
+        </template>
+        <small class="field-help">Unggah foto JPG, PNG, atau WebP (maks. 5 MB). Jika tidak ada file baru, foto saat ini tetap digunakan.</small>
+        <div class="home-section-actions">
+          <button class="button-primary" type="submit" name="save_section" value="home-gallery">Simpan perubahan</button>
+        </div>
+      </details>
+
+      <details id="home-admission" class="history-editor-section home-editor-section" name="home-editor-sections" data-home-section>
+        <summary>Penerimaan Peserta Didik Baru</summary>
+        <div class="history-form-grid history-form-grid-two">
+          <label>Label kecil
+            <input name="home_admission_eyebrow" maxlength="100" required value="{{ home_values.homeSections.admission.eyebrow }}">
+          </label>
+          <label>Judul
+            <input name="admission_title" maxlength="180" required value="{{ home_values.admission.title }}">
+          </label>
+          <label>Deskripsi
+            <textarea name="admission_description" rows="4" maxlength="2000" required>{{ home_values.admission.description }}</textarea>
+          </label>
+          <label>Alamat tujuan tombol
+            <input name="admission_url" maxlength="500" required value="{{ home_values.admission.url }}">
+          </label>
+          <label>Teks tombol utama
+            <input name="admission_primary_label" maxlength="100" required value="{{ home_values.admission.primaryLabel }}">
+          </label>
+          <label>Teks tombol informasi
+            <input name="admission_secondary_label" maxlength="100" required value="{{ home_values.admission.secondaryLabel }}">
+          </label>
+        </div>
+        <div class="home-section-actions">
+          <button class="button-primary" type="submit" name="save_section" value="home-admission">Simpan perubahan</button>
+        </div>
+      </details>
+
+      <details id="home-contact" class="history-editor-section home-editor-section" name="home-editor-sections" data-home-section>
+        <summary>Kontak &amp; Lokasi Madrasah</summary>
+        <div class="history-form-grid history-form-grid-two">
+          <label>Label kecil
+            <input name="home_contact_eyebrow" maxlength="100" required value="{{ home_values.homeSections.contact.eyebrow }}">
+          </label>
+          <label>Judul bagian
+            <input name="home_contact_title" maxlength="180" required value="{{ home_values.homeSections.contact.title }}">
+          </label>
+          <label>Label alamat
+            <input name="contact_address_label" maxlength="100" required value="{{ home_values.contact.addressLabel }}">
+          </label>
+          <label>Alamat madrasah
+            <textarea name="contact_address" rows="3" maxlength="500" required>{{ home_values.contact.address }}</textarea>
+          </label>
+          <label>Label telepon
+            <input name="contact_phone_label" maxlength="100" required value="{{ home_values.contact.phoneLabel }}">
+          </label>
+          <label>Nomor telepon
+            <input name="contact_phone" maxlength="180" required value="{{ home_values.contact.phone }}">
+          </label>
+          <label>Label email
+            <input name="contact_email_label" maxlength="100" required value="{{ home_values.contact.emailLabel }}">
+          </label>
+          <label>Alamat email
+            <input name="contact_email" type="email" maxlength="180" required value="{{ home_values.contact.email }}">
+          </label>
+          <label>Label jam pelayanan
+            <input name="contact_hours_label" maxlength="100" required value="{{ home_values.contact.hoursLabel }}">
+          </label>
+          <label>Jam pelayanan
+            <textarea name="contact_hours" rows="3" maxlength="500" required>{{ home_values.contact.hours }}</textarea>
+          </label>
+          <label>Label toolbar peta
+            <input name="contact_map_context_label" maxlength="100" required value="{{ home_values.homeSections.contact.mapContextLabel }}">
+          </label>
+          <label>Nama lokasi pada peta
+            <input name="contact_map_title" maxlength="120" required value="{{ home_values.homeSections.contact.mapTitle }}">
+          </label>
+          <label>Keterangan lokasi peta
+            <input name="contact_map_caption" maxlength="300" required value="{{ home_values.contact.mapCaption }}">
+          </label>
+          <label>Alamat peta sematan
+            <input name="contact_map_url" maxlength="500" required value="{{ home_values.contact.mapUrl }}">
+          </label>
+        </div>
+        <div class="home-section-actions">
+          <button class="button-primary" type="submit" name="save_section" value="home-contact">Simpan perubahan</button>
+        </div>
+      </details>
+    </form>
+  </section>
+  <script src="{{ url_for('static', filename='homepage-editor.js', v='2') }}" defer></script>
+{% endblock %}

@@ -1,0 +1,7 @@
+export { default as PrestasiPage } from './PrestasiPage.jsx'
+export { default as MinatBakatPage } from './MinatBakatPage.jsx'
+export { default as MinatBakatDetailPage } from './MinatBakatDetailPage.jsx'
+export { default as KalenderAkademikPage } from './KalenderAkademikPage.jsx'
+export { default as ProgramKhususPage } from './ProgramKhususPage.jsx'
+export { ProgramKhususOverviewPage } from './ProgramKhususPage.jsx'
+export { default as TestimoniAlumniPage } from './TestimoniAlumniPage.jsx'

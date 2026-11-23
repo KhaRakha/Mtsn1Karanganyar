@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="900" x2="1200" y2="0" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#8A5E29"/>
+      <stop offset="1" stop-color="#35664E"/>
+    </linearGradient>
+    <linearGradient id="leaf" x1="482" y1="230" x2="718" y2="515" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#E8F4B1"/>
+      <stop offset="1" stop-color="#91C982"/>
+    </linearGradient>
+  </defs>
+  <path fill="url(#bg)" d="M0 0h1200v900H0z"/>
+  <circle cx="600" cy="370" r="220" fill="#fff" fill-opacity=".06"/>
+  <circle cx="600" cy="370" r="175" stroke="#fff" stroke-opacity=".14" stroke-width="2"/>
+  <path d="M600 530c-14-84-5-183 37-267 30-60 89-99 165-119 0 91-25 168-79 222-35 35-77 55-123 68Z" fill="url(#leaf)"/>
+  <path d="M600 529c14-84 5-183-37-266-30-60-89-99-165-119 0 91 25 168 79 222 35 35 77 55 123 67Z" fill="#D7ED9C"/>
+  <path d="M600 533c3-105 15-181 38-243m-38 241c-4-96-18-164-53-221m56 154 94-109m-94 65-96-112" stroke="#4E8051" stroke-width="12" stroke-linecap="round"/>
+  <path d="M495 570h210l-30 55H525l-30-55Z" fill="#F2D18C"/>
+  <text x="600" y="770" fill="#fff" font-family="Arial,sans-serif" font-size="48" font-weight="700" letter-spacing="3" text-anchor="middle">PENGHARGAAN LINGKUNGAN</text>
+</svg>

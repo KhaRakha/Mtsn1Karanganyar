@@ -1,0 +1,96 @@
+{% extends "admin/base.html" %}
+
+{% block title %}Ringkasan Admin | MTsN 1 Karanganyar{% endblock %}
+
+{% block content %}
+  <section class="dashboard-hero">
+    <img class="dashboard-hero-image" src="{{ url_for('static', filename='uploads/content/hero-madrasah.jpg') }}" alt="" aria-hidden="true">
+    <div class="dashboard-hero-copy">
+      <span class="dashboard-hero-kicker">PANEL PENGELOLAAN MADRASAH</span>
+      <h1>Selamat datang, Admin</h1>
+      <p>Atur konten, informasi warga madrasah, dan navigasi website dari satu tempat.</p>
+      <div class="dashboard-hero-status">
+        <span><i></i> Sistem aktif</span>
+        <span data-dashboard-date></span>
+      </div>
+    </div>
+  </section>
+
+  <div class="dashboard-section-heading">
+    <div><span class="page-kicker">RINGKASAN KONTEN</span><h2>Ikhtisar website</h2></div>
+    <p>Data terkini dari pengelolaan website</p>
+  </div>
+  <div class="summary-grid">
+    {% for stat in dashboard_stats %}
+      {% set stat_icon = {'berita': 'news', 'artikel': 'article', 'galeri': 'images'}.get(stat.key, 'files') %}
+      <a class="summary-card {{ stat.key }}" href="{{ stat.href }}" aria-label="{{ stat.action }}: {{ stat.label }} ({{ stat.count }})" data-admin-stat="{{ stat.key }}" data-stat-count="{{ stat.count }}">
+        <span class="summary-icon {{ stat.key }}" aria-hidden="true"><svg class="admin-icon"><use href="#icon-{{ stat_icon }}"></use></svg></span>
+        <span class="summary-label">{{ stat.label }}</span>
+        <strong>{{ stat.count }}</strong>
+        <span class="summary-card-action">{{ stat.action }} <svg class="admin-icon" aria-hidden="true"><use href="#icon-arrow-right"></use></svg></span>
+      </a>
+    {% endfor %}
+  </div>
+
+  <div class="dashboard-secondary-stats" aria-label="Konten lainnya">
+    {% for key in ['prestasi', 'pengumuman'] %}
+      <a class="secondary-stat" href="{{ url_for('content_list', content_type=key) }}" aria-label="Kelola {{ content_types[key] }} ({{ counts[key] }})">
+        <span>{{ content_types[key] }}</span>
+        <strong>{{ counts[key] }}</strong>
+        <svg class="admin-icon secondary-stat-arrow" aria-hidden="true"><use href="#icon-arrow-right"></use></svg>
+      </a>
+    {% endfor %}
+  </div>
+
+  <div class="dashboard-section-heading">
+    <div><span class="page-kicker">AKSES CEPAT</span><h2>Pengelolaan website</h2></div>
+  </div>
+  <section class="quick-management-grid" aria-label="Pengelolaan website">
+    <a class="quick-management-card" href="{{ url_for('page_content_list') }}">
+      <span aria-hidden="true"><svg class="admin-icon"><use href="#icon-files"></use></svg></span>
+      <strong>Halaman website</strong>
+      <small>Atur metadata halaman dan kelola isi Sejarah secara terpisah.</small>
+    </a>
+    <a class="quick-management-card" href="{{ url_for('navigation_list') }}">
+      <span aria-hidden="true"><svg class="admin-icon"><use href="#icon-menu"></use></svg></span>
+      <strong>Menu dan submenu</strong>
+      <small>Atur kategori serta tautan menu Tentang, Akademik, dan Kegiatan.</small>
+    </a>
+    <a class="quick-management-card" href="{{ url_for('guru_list') }}">
+      <span aria-hidden="true"><svg class="admin-icon"><use href="#icon-users"></use></svg></span>
+      <strong>Direktori guru</strong>
+      <small>Perbarui nama, jabatan, foto, dan urutan tampilan.</small>
+    </a>
+    <a class="quick-management-card" href="{{ url_for('tendik_list') }}">
+      <span aria-hidden="true"><svg class="admin-icon"><use href="#icon-id-card"></use></svg></span>
+      <strong>Direktori tendik</strong>
+      <small>Perbarui nama, jabatan, foto, dan urutan tampil.</small>
+    </a>
+  </section>
+
+  <section class="panel">
+    <div class="panel-heading">
+      <div><span class="page-kicker">AKTIVITAS</span><h2>Konten terbaru</h2></div>
+    </div>
+    {% if recent_items %}
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Judul</th><th>Kategori</th><th>Tanggal</th><th>Status</th><th>Aksi</th></tr></thead>
+          <tbody>
+            {% for item in recent_items %}
+              <tr>
+                <td class="table-title" data-label="Judul">{{ item.title }}</td>
+                <td data-label="Kategori">{{ content_types[item.content_type] }}</td>
+                <td data-label="Tanggal">{{ item.published_at }}</td>
+                <td data-label="Status"><span class="status-badge {{ item.status }}">{{ 'Terbit' if item.status == 'published' else 'Draf' }}</span></td>
+                <td data-label="Aksi"><a class="table-action" href="{{ url_for('content_edit', item_id=item.id) }}">Edit</a></td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    {% else %}
+      <div class="empty-state"><span aria-hidden="true"><svg class="admin-icon"><use href="#icon-empty"></use></svg></span><strong>Belum ada konten</strong><p>Tambahkan berita, prestasi, atau pengumuman pertama Anda.</p></div>
+    {% endif %}
+  </section>
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends "admin/base.html" %}
+
+{% block title %}{{ page_title }} | Navigasi Website{% endblock %}
+
+{% block content %}
+  <div class="page-heading">
+    <div>
+      <span class="page-kicker">NAVIGASI WEBSITE</span>
+      <h1>{{ page_title }}</h1>
+      <p>Pilih menu utama dan kelompok submenu yang akan ditampilkan pada website.</p>
+    </div>
+    <a class="button-secondary" href="{{ url_for('navigation_list') }}"><svg class="admin-icon" aria-hidden="true"><use href="#icon-arrow-left"></use></svg> Kembali</a>
+  </div>
+
+  <section class="panel form-panel">
+    {% if errors %}
+      <div class="form-error" role="alert">
+        {% for error in errors %}<p>{{ error }}</p>{% endfor %}
+      </div>
+    {% endif %}
+    <form class="content-form" method="post">
+      <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+      <label for="title">Nama kategori <span>*</span></label>
+      <input id="title" name="title" type="text" maxlength="80" value="{{ values.title }}" required>
+
+      <label for="menu_key">Menu utama <span>*</span></label>
+      <select id="menu_key" name="menu_key" required>
+        {% for key, label in navigation_menus.items() %}
+          <option value="{{ key }}" {% if values.menu_key == key %}selected{% endif %}>{{ label }}</option>
+        {% endfor %}
+      </select>
+
+      <label for="sort_order">Urutan tampil</label>
+      <input id="sort_order" name="sort_order" type="number" min="0" step="1" value="{{ values.sort_order }}" required>
+      <small class="field-help">Angka lebih kecil ditampilkan lebih dahulu. Angka yang sama mengikuti urutan pembuatan.</small>
+
+      <div class="form-actions">
+        <button class="button-primary" type="submit">Simpan Kategori</button>
+        <a class="button-secondary" href="{{ url_for('navigation_list') }}">Batal</a>
+      </div>
+    </form>
+  </section>
+{% endblock %}

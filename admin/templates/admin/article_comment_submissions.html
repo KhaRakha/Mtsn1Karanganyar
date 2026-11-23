@@ -1,0 +1,52 @@
+{% extends "admin/base.html" %}
+
+{% block title %}Komentar Artikel Masuk | Admin MTsN 1 Karanganyar{% endblock %}
+
+{% block content %}
+  <div class="page-heading">
+    <div>
+      <span class="page-kicker">MODERASI PUBLIKASI</span>
+      <h1>Komentar Artikel Masuk</h1>
+      <p>Tinjau komentar sebelum ditampilkan pada artikel.</p>
+    </div>
+    <a class="button-secondary" href="{{ url_for('content_list', content_type='artikel') }}">Kelola artikel</a>
+  </div>
+
+  <section class="panel">
+    {% if comments %}
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Artikel</th><th>Komentar</th><th>Nama</th><th>Dikirim</th><th class="actions-heading">Aksi</th></tr>
+          </thead>
+          <tbody>
+            {% for item in comments %}
+              <tr>
+                <td class="table-title" data-label="Artikel">{{ item.article_title }}</td>
+                <td data-label="Komentar">{{ item.body }}</td>
+                <td data-label="Nama">{{ item.name }}</td>
+                <td data-label="Dikirim">{{ item.submitted_at }}</td>
+                <td class="row-actions" data-label="Aksi">
+                  <form method="post" action="{{ url_for('article_comment_approve', comment_id=item.id) }}">
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                    <button class="table-action" type="submit">Setujui</button>
+                  </form>
+                  <form method="post" action="{{ url_for('article_comment_reject', comment_id=item.id) }}">
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                    <button class="table-action danger" type="submit">Tolak</button>
+                  </form>
+                </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    {% else %}
+      <div class="empty-state">
+        <span aria-hidden="true"><svg class="admin-icon"><use href="#icon-message"></use></svg></span>
+        <strong>Tidak ada komentar yang menunggu</strong>
+        <p>Komentar pembaca akan muncul di sini untuk ditinjau sebelum ditampilkan.</p>
+      </div>
+    {% endif %}
+  </section>
+{% endblock %}

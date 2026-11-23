@@ -1,0 +1,1695 @@
+{
+  "beranda": {
+    "heroSlides": [
+      {
+        "type": "video",
+        "label": "Video kegiatan pendidikan",
+        "image": "https://images.unsplash.com/photo-1588072432836-e10032774350?auto=format&fit=crop&w=900&q=85",
+        "video": "https://videos.pexels.com/video-files/3209298/3209298-hd_1920_1080_25fps.mp4"
+      },
+      {
+        "type": "photo",
+        "label": "Lingkungan madrasah",
+        "image": "https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=2000&q=85"
+      },
+      {
+        "type": "photo",
+        "label": "Kegiatan belajar siswa",
+        "image": "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=900&q=85"
+      },
+      {
+        "type": "photo",
+        "label": "Praktikum sains",
+        "image": "https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=1200&q=85"
+      }
+    ],
+    "hero": {
+      "title": "Membangun Generasi\nIslami, Cerdas, dan\nBerprestasi",
+      "description": "MTsN 1 Karanganyar hadir sebagai lembaga pendidikan Islam yang berkomitmen mencetak generasi berakhlak mulia, berilmu, dan siap menghadapi masa depan."
+    },
+    "welcome": {
+      "title": "Sambutan Kepala Madrasah",
+      "name": "Drs. Amirudin, M.Si.",
+      "image": "",
+      "greeting": "Assalamu’alaikum Warahmatullahi Wabarakatuh",
+      "body": "Selamat datang di website resmi MTsN 1 Karanganyar. Sebagai salah satu madrasah unggulan, kami berkomitmen untuk menghadirkan ekosistem pendidikan yang memadukan kedalaman nilai-nilai keislaman, penguasaan sains dan teknologi, serta pembinaan akhlak mulia. Melalui sinergi guru berdedikasi, fasilitas modern, dan dukungan penuh orang tua, kami membimbing setiap santri untuk meraih prestasi terbaik dan siap menjawab tantangan masa depan.",
+      "closing": "Wassalamu’alaikum Warahmatullahi Wabarakatuh"
+    },
+    "statistics": [
+      {
+        "value": 1000,
+        "label": "Murid Aktif"
+      },
+      {
+        "value": 88,
+        "label": "Guru & Staff"
+      },
+      {
+        "value": 500,
+        "label": "Prestasi"
+      },
+      {
+        "value": 15000,
+        "label": "Alumni"
+      }
+    ],
+    "programs": [
+      {
+        "number": "01",
+        "title": "Program Khusus (PK) Tahfidz",
+        "description": "Pembinaan hafalan Al-Qur’an yang disertai pendalaman ilmu Al-Qur’an secara terarah.",
+        "visuals": [
+          {
+            "src": "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=900&q=85",
+            "alt": "Siswa mengikuti kegiatan upacara"
+          },
+          {
+            "src": "https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=2000&q=85",
+            "alt": "Gedung dan lingkungan madrasah"
+          },
+          {
+            "src": "https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?auto=format&fit=crop&w=900&q=85",
+            "alt": "Siswa belajar bersama"
+          }
+        ]
+      },
+      {
+        "number": "02",
+        "title": "Program Khusus (PK) Fullday Sains",
+        "description": "Pembelajaran sehari penuh dengan pendalaman materi akademik dan sains secara intensif.",
+        "visuals": [
+          {
+            "src": "https://images.unsplash.com/photo-1588072432836-e10032774350?auto=format&fit=crop&w=900&q=85",
+            "alt": "Suasana pembelajaran di kelas"
+          },
+          {
+            "src": "https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?auto=format&fit=crop&w=900&q=85",
+            "alt": "Siswa berdiskusi dalam pembelajaran"
+          },
+          {
+            "src": "https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=1200&q=85",
+            "alt": "Siswa melakukan praktikum sains"
+          }
+        ]
+      },
+      {
+        "number": "03",
+        "title": "Bimbingan Olimpiade & Kompetisi Akademik",
+        "description": "Pembinaan intensif bagi siswa berbakat untuk meraih prestasi di ajang kompetisi sains dan olimpiade tingkat kabupaten hingga nasional.",
+        "visuals": [
+          {
+            "src": "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=900&q=85",
+            "alt": "Siswa beraktivitas bersama"
+          },
+          {
+            "src": "https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=1200&q=85",
+            "alt": "Kegiatan praktik dan eksplorasi siswa"
+          },
+          {
+            "src": "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=900&q=85",
+            "alt": "Kegiatan siswa di lingkungan madrasah"
+          }
+        ]
+      },
+      {
+        "number": "04",
+        "title": "Ekstrakurikuler & Pengembangan Karakter",
+        "description": "Wadah eksplorasi minat, bakat, dan kepemimpinan melalui kegiatan Pramuka, PMR, olahraga, hingga seni islami.",
+        "visuals": [
+          {
+            "src": "https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?auto=format&fit=crop&w=900&q=85",
+            "alt": "Siswa belajar dengan tertib"
+          },
+          {
+            "src": "https://images.unsplash.com/photo-1588072432836-e10032774350?auto=format&fit=crop&w=900&q=85",
+            "alt": "Kegiatan belajar di kelas"
+          },
+          {
+            "src": "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=900&q=85",
+            "alt": "Siswa bekerja sama"
+          }
+        ]
+      }
+    ],
+    "values": [
+      [
+        "01",
+        "Akhlak dan Ketakwaan",
+        "Karakter"
+      ],
+      [
+        "02",
+        "Pembelajaran Mendalam",
+        "Akademik"
+      ],
+      [
+        "03",
+        "Keterampilan Abad Ini",
+        "Kompetensi"
+      ],
+      [
+        "04",
+        "Madrasah Aman dan Inklusif",
+        "Iklim Madrasah"
+      ],
+      [
+        "05",
+        "Gotong Royong",
+        "Komunitas & Sains"
+      ],
+      [
+        "06",
+        "Literasi Digital",
+        "Teknologi"
+      ],
+      [
+        "07",
+        "Madrasah Hijau & Berkelanjutan",
+        "Lingkungan"
+      ],
+      [
+        "08",
+        "Adaptif Masa Depan",
+        "Inovasi"
+      ]
+    ],
+    "fallbackNews": {
+      "title": "Siswa MTsN 1 Karanganyar Berhasil Raih Medali Emas pada Kompetisi Sains Madrasah Nasional",
+      "summary": "Tim riset dan sains madrasah membuktikan dedikasi dan kerja nyata dengan menyabet medali emas bidang Fisika dalam ajang bergengsi tingkat nasional.",
+      "image": "https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=1200&q=85",
+      "dateTime": "2026-10-28"
+    },
+    "fallbackAchievements": [
+      {
+        "category": "Juara 3 Tingkat Provinsi",
+        "title": "Juara 3 Pencak Silat, Kelas D Remaja",
+        "image": "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=900&q=85",
+        "dateTime": "2026-10-24"
+      },
+      {
+        "category": "Kompetisi Sains Nasional",
+        "title": "Juara 2 Lomba Tari Tradisional",
+        "image": "https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=1200&q=85",
+        "dateTime": "2026-10-24"
+      },
+      {
+        "category": "Festival Madrasah 2025",
+        "title": "Juara Harapan 1 Hadrah & Rebana",
+        "image": "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=900&q=85",
+        "dateTime": "2026-10-24"
+      },
+      {
+        "category": "Olimpiade Robotik",
+        "title": "Juara 1 Madrasah Robotic Competition",
+        "image": "https://images.unsplash.com/photo-1588072432836-e10032774350?auto=format&fit=crop&w=900&q=85",
+        "dateTime": "2026-10-24"
+      }
+    ],
+    "gallery": [
+      {
+        "title": "Kegiatan Belajar",
+        "category": "Pembelajaran",
+        "image": "https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?auto=format&fit=crop&w=900&q=85"
+      },
+      {
+        "title": "Praktikum Sains",
+        "category": "Pembelajaran",
+        "image": "https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=1200&q=85"
+      },
+      {
+        "title": "Upacara Bendera",
+        "category": "Upacara & Karakter",
+        "image": "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=900&q=85"
+      },
+      {
+        "title": "Kegiatan Keagamaan",
+        "category": "Keagamaan",
+        "image": "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=900&q=85"
+      },
+      {
+        "title": "Ruang Literasi",
+        "category": "Ekstrakurikuler",
+        "image": "https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=900&q=85"
+      }
+    ],
+    "admission": {
+      "title": "Siap Bergabung dengan Keluarga Besar MTsN 1 Karanganyar?",
+      "description": "Informasi jalur, persyaratan, dan jadwal penerimaan murid baru tersedia melalui kantor madrasah. Silakan hubungi kami untuk mendapatkan panduan terbaru.",
+      "primaryLabel": "Hubungi Panitia PMBM",
+      "secondaryLabel": "Informasi & Brosur PMBM",
+      "url": "https://pmb.mtsn1karanganyar.sch.id/"
+    },
+    "contact": {
+      "addressLabel": "Alamat",
+      "address": "Jl. Solo - Purwodadi KM. 12, Desa Tuban, Kecamatan Gondangrejo, Kabupaten Karanganyar, Jawa Tengah 57773.",
+      "phoneLabel": "Telepon",
+      "phone": "(0271) 495251 / (0271) 495124",
+      "emailLabel": "Email",
+      "email": "mtsn1karanganyar@kemenag.go.id",
+      "hoursLabel": "Jam Pelayanan",
+      "hours": "Senin–Kamis: 07.00–15.30 WIB\nJumat: 07.00–14.30 WIB",
+      "mapUrl": "https://maps.google.com/maps?q=MTs%20Negeri%201%20Karanganyar%2C%20Jl.%20Solo%20-%20Purwodadi%20KM.%2012%2C%20Desa%20Tuban%2C%20Gondangrejo%2C%20Kabupaten%20Karanganyar&t=&z=15&ie=UTF8&iwloc=&output=embed",
+      "mapCaption": "Jl. Solo - Purwodadi KM. 12, Desa Tuban, Gondangrejo"
+    },
+    "homeSections": {
+      "programs": {
+        "eyebrow": "PILAR MUTU AKADEMIK",
+        "title": "Program & Keunggulan Pendidikan"
+      },
+      "vision": {
+        "eyebrow": "VISI & MISI",
+        "title": "Visi & Misi",
+        "description": "Arah yang dituju MTsN 1 Karanganyar dan delapan langkah untuk mewujudkannya.",
+        "visionLabel": "Visi",
+        "statement": "“Terwujudnya Generasi Qur’ani yang Cerdas, Mandiri, Berprestasi, dan Berakhlak Karimah”",
+        "missionLabel": "Misi",
+        "linkLabel": "Lihat visi & misi lengkap",
+        "linkUrl": "#akademik"
+      },
+      "news": {
+        "eyebrow": "KANAL INFORMASI",
+        "title": "Berita & Prestasi",
+        "description": "Kabar kegiatan terbaru serta torehan kebanggaan MTsN 1 Karanganyar dalam mengukir prestasi.",
+        "newsLabel": "Berita",
+        "newsLinkLabel": "Semua berita",
+        "newsLinkUrl": "/berita",
+        "achievementsLabel": "Prestasi",
+        "achievementsLinkLabel": "Semua prestasi",
+        "achievementsLinkUrl": "/prestasi"
+      },
+      "gallery": {
+        "eyebrow": "DOKUMENTASI VISUAL",
+        "title": "Galeri Kegiatan Madrasah"
+      },
+      "admission": {
+        "eyebrow": "PENERIMAAN PESERTA DIDIK BARU"
+      },
+      "contact": {
+        "eyebrow": "HUBUNGI LEMBAGA",
+        "title": "Kontak & Lokasi Madrasah",
+        "mapContextLabel": "Beranda",
+        "mapTitle": "MTsN 1 KARANGANYAR"
+      }
+    }
+  },
+  "visi-misi": {
+    "vision": {
+      "label": "VISI MADRASAH",
+      "eyebrow": "CITA-CITA KAMI",
+      "text": "“Terwujudnya Generasi Qur’ani yang Cerdas, Mandiri, Berprestasi, dan Berakhlak Karimah”",
+      "description": "Menjadi generasi yang berakar pada nilai Al-Qur’an, siap belajar sepanjang hayat, dan membawa kebaikan bagi sesama."
+    },
+    "missionHeading": {
+      "label": "MISI MADRASAH",
+      "title": "Delapan langkah\nmenuju cita-cita.",
+      "description": "Nilai-nilai ini menjadi komitmen bersama dalam membangun pengalaman belajar yang utuh, bermakna, dan relevan dengan masa depan."
+    },
+    "missions": [
+      {
+        "number": "01",
+        "title": "Akhlak dan Ketakwaan",
+        "category": "Karakter",
+        "description": "Membiasakan nilai keimanan, ibadah, dan perilaku terpuji dalam kehidupan madrasah."
+      },
+      {
+        "number": "02",
+        "title": "Pembelajaran Mendalam",
+        "category": "Akademik",
+        "description": "Menghadirkan proses belajar yang bermakna, aktif, dan mendorong pemahaman yang kuat."
+      },
+      {
+        "number": "03",
+        "title": "Keterampilan Abad Ini",
+        "category": "Kompetensi",
+        "description": "Mengembangkan kemampuan berpikir kritis, kreativitas, komunikasi, dan kolaborasi."
+      },
+      {
+        "number": "04",
+        "title": "Madrasah Aman dan Inklusif",
+        "category": "Iklim Madrasah",
+        "description": "Menumbuhkan lingkungan belajar yang aman, ramah, dan menghargai setiap warga madrasah."
+      },
+      {
+        "number": "05",
+        "title": "Gotong Royong",
+        "category": "Komunitas",
+        "description": "Memperkuat semangat kebersamaan melalui kerja sama siswa, guru, keluarga, dan masyarakat."
+      },
+      {
+        "number": "06",
+        "title": "Literasi Digital",
+        "category": "Teknologi",
+        "description": "Membekali siswa agar cakap, bijak, dan bertanggung jawab dalam memanfaatkan teknologi."
+      },
+      {
+        "number": "07",
+        "title": "Madrasah Hijau & Berkelanjutan",
+        "category": "Lingkungan",
+        "description": "Membangun kepedulian terhadap lingkungan melalui kebiasaan hidup bersih dan berkelanjutan."
+      },
+      {
+        "number": "08",
+        "title": "Adaptif Masa Depan",
+        "category": "Inovasi",
+        "description": "Menyiapkan generasi yang tangguh, terbuka pada perubahan, dan siap menghadapi tantangan."
+      }
+    ],
+    "callout": {
+      "eyebrow": "BERSAMA MTsN 1 KARANGANYAR",
+      "title": "Mari tumbuh dan berkontribusi bersama.",
+      "linkLabel": "Hubungi madrasah",
+      "link": "/#kontak"
+    }
+  },
+  "sejarah": {
+    "story": {
+      "title": "Jejak Langkah & Sejarah Pendirian",
+      "description": "Menelusuri perjalanan panjang MTsN 1 Karanganyar dalam mencerdaskan tunas bangsa, menanamkan integritas dan budi pekerti, serta mengukir prestasi gemilang. Bersama dedikasi para pendidik dan semangat seluruh warga madrasah, setiap langkah menjadi bagian dari ikhtiar membangun generasi yang berilmu, berkarakter, dan siap memberi manfaat bagi negeri.",
+      "founded": "14 Mei 1985",
+      "tenure": "38+ Tahun",
+      "accreditation": "Akreditasi 'A'",
+      "milestonesTitle": "Tonggak Sejarah Gemilang",
+      "emblemTitle": "Anatomi Lambang & Panji Kehormatan",
+      "emblemLogoTitle": "Insignia Kehormatan Lembaga",
+      "leadersTitle": "Kepala Madrasah Dari Masa ke Masa"
+    },
+    "milestones": [
+      {
+        "year": "1960",
+        "title": "Awal Berdirinya Madrasah",
+        "text": "MTs Al Ma'arif Gondangrejo mulai dirintis sebagai lembaga pendidikan Islam di bawah naungan Yayasan Al Ma'arif.",
+        "noteTitle": "Catatan Sejarah 1960",
+        "note": "Menjadi awal perjalanan madrasah dalam memberikan pendidikan agama Islam kepada masyarakat."
+      },
+      {
+        "year": "1968",
+        "title": "Tonggak Madrasah Negeri",
+        "text": "Perubahan status menjadi negeri menjadi langkah penting dalam perjalanan dan perkembangan madrasah.",
+        "noteTitle": "Perubahan Status Negeri 1968",
+        "note": "Berdasarkan KMA Nomor 144 Tahun 1968 tanggal 12 Juli 1968, madrasah resmi berubah status menjadi MTs-Agama Islam Negeri."
+      },
+      {
+        "year": "1978",
+        "title": "Menjadi MTs Negeri Gondangrejo",
+        "text": "Melalui Keputusan Menteri Agama Nomor 16 Tahun 1978 tanggal 12 Maret 1978, nama madrasah berubah menjadi MTs Negeri Gondangrejo.",
+        "noteTitle": "Perkembangan Identitas 1978",
+        "note": "Madrasah terus melanjutkan perannya sebagai lembaga pendidikan Islam negeri di wilayah Gondangrejo."
+      },
+      {
+        "year": "2013",
+        "title": "Identitas MTsN 1 Karanganyar",
+        "text": "Madrasah dikenal dengan nama MTs Negeri 1 Karanganyar atau MADAGASKAR.",
+        "noteTitle": "Perubahan Nama Madrasah",
+        "note": "Penyesuaian nama menjadi MTs Negeri 1 Karanganyar memperkuat identitas madrasah sebagai lembaga pendidikan negeri di Kabupaten Karanganyar."
+      },
+      {
+        "year": "2017",
+        "title": "Pengembangan Madrasah",
+        "text": "Pergantian kepemimpinan menjadi bagian dari perjalanan madrasah dalam melanjutkan pengembangan pendidikan dan peningkatan kualitas layanan.",
+        "noteTitle": "Melanjutkan Perjalanan",
+        "note": "Madrasah terus menjalankan pengembangan pendidikan melalui kepemimpinan dan pengelolaan yang berkelanjutan."
+      },
+      {
+        "year": "Kini",
+        "title": "Menuju Masa Depan Gemilang",
+        "text": "Melanjutkan perjalanan panjang untuk menjadi madrasah yang unggul dan berkualitas.",
+        "noteTitle": "Komitmen Masa Kini",
+        "note": "Terus berupaya meningkatkan kualitas pendidikan, membangun karakter peserta didik, serta mencetak generasi yang berprestasi dan berakhlak mulia."
+      }
+    ],
+    "emblemPoints": [
+      {
+        "icon": "♨",
+        "title": "Obor Abadi",
+        "text": "Penerang jalan kebenaran ilmu pengetahuan dan karakter."
+      },
+      {
+        "icon": "▣",
+        "title": "Buku Terbuka",
+        "text": "Keterbukaan terhadap kemajuan ilmu, teknologi, dan literasi."
+      },
+      {
+        "icon": "♙",
+        "title": "Untaian Daun Zaitun",
+        "text": "Makna kehormatan, kerja keras, dan pencapaian prestasi."
+      },
+      {
+        "icon": "◉",
+        "title": "Biru Samudera & Emas",
+        "text": "Melambangkan kedalaman integritas dan kecemerlangan prestasi."
+      }
+    ],
+    "leaders": [
+      {
+        "period": "1985 – 1995",
+        "name": "Prof. Dr. Siti Wardhani, M.Ed.",
+        "image": "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=500&q=80"
+      },
+      {
+        "period": "1995 – 2008",
+        "name": "Drs. H. Bambang Sudirman, M.Pd.",
+        "image": "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=500&q=80"
+      },
+      {
+        "period": "2008 – 2018",
+        "name": "Dra. Hj. Ratna Juwita, M.M.",
+        "image": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=500&q=80"
+      },
+      {
+        "period": "2018 – Sekarang",
+        "name": "Dr. H. Suryo Prabowo, M.Pd.",
+        "image": ""
+      },
+      {
+        "period": "1978 – 1985",
+        "name": "Drs. H. Ahmad Fauzan, M.Ag.",
+        "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=500&q=80"
+      },
+      {
+        "period": "1970 – 1978",
+        "name": "Dra. Hj. Nurhayati, M.Pd.",
+        "image": "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=500&q=80"
+      },
+      {
+        "period": "1962 – 1970",
+        "name": "Drs. H. Abdul Karim, M.Pd.",
+        "image": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=500&q=80"
+      }
+    ]
+  },
+  "penghargaan-madrasah": {
+    "section": {
+      "title": "Apresiasi dan Penghargaan"
+    },
+    "awards": [
+      {
+        "title": "Penghargaan Akademik",
+        "image": "/demo-award-academic.svg",
+        "alt": "Ilustrasi penghargaan akademik",
+        "description": "Apresiasi di bidang akademik dan pengembangan prestasi siswa."
+      },
+      {
+        "title": "Apresiasi Madrasah",
+        "image": "/demo-award-madrasah.svg",
+        "alt": "Ilustrasi apresiasi madrasah",
+        "description": "Apresiasi atas upaya peningkatan mutu pendidikan di madrasah."
+      },
+      {
+        "title": "Penghargaan Lingkungan",
+        "image": "/demo-award-environment.svg",
+        "alt": "Ilustrasi penghargaan lingkungan",
+        "description": "Apresiasi di bidang kepedulian dan pengelolaan lingkungan madrasah."
+      }
+    ]
+  },
+  "sarana-prasarana": {
+    "feature": {
+      "titlePrefix": "Sarana & Prasarana Unggulan untuk",
+      "titleEmphasis": "Masa Depan Gemilang",
+      "description": "MTsN 1 Karanganyar menyediakan ruang belajar terpadu, laboratorium modern, dan fasilitas ramah anak untuk mendukung optimalisasi prestasi akademik, eksplorasi riset, serta karakter generasi islami berkualitas."
+    },
+    "highlights": [
+      "Lingkungan Nyaman & Asri",
+      "Pembelajaran Modern Digital",
+      "Standar Mutu & Proteksi"
+    ],
+    "summary": [
+      {
+        "icon": "✦",
+        "value": "7",
+        "label": "Total fasilitas",
+        "description": "Fasilitas utama madrasah"
+      },
+      {
+        "icon": "▣",
+        "value": "2",
+        "label": "Laboratorium",
+        "description": "Ruang praktik terpadu"
+      },
+      {
+        "icon": "◌",
+        "value": "1",
+        "label": "Sumber belajar",
+        "description": "Perpustakaan madrasah"
+      },
+      {
+        "icon": "▥",
+        "value": "4",
+        "label": "Penunjang",
+        "description": "Ruang dan area kegiatan"
+      }
+    ],
+    "facilities": [
+      {
+        "category": "Laboratorium",
+        "title": "Laboratorium IPA",
+        "description": "Ruang praktik untuk kegiatan pengamatan, eksperimen, dan pembelajaran sains.",
+        "image": "",
+        "detail": "Mendukung praktikum IPA dengan ruang yang aman, tertata, dan mendukung pembelajaran berbasis eksperimen.",
+        "building": "Gedung Madrasah",
+        "floor": "1",
+        "area": "Ruang fasilitas",
+        "equipment": "Data peralatan dapat diperbarui sesuai inventaris resmi madrasah."
+      },
+      {
+        "category": "Laboratorium",
+        "title": "Laboratorium Komputer",
+        "description": "Mendukung pembelajaran digital, teknologi informasi, dan asesmen berbasis komputer.",
+        "image": "",
+        "detail": "Digunakan untuk pembelajaran informatika, latihan keterampilan digital, dan kegiatan asesmen berbasis komputer.",
+        "building": "Gedung Madrasah",
+        "floor": "1",
+        "area": "Ruang fasilitas",
+        "equipment": "Data peralatan dapat diperbarui sesuai inventaris resmi madrasah."
+      },
+      {
+        "category": "Sumber belajar",
+        "title": "Perpustakaan",
+        "description": "Ruang literasi dengan koleksi bacaan dan referensi untuk menunjang pembelajaran.",
+        "image": "",
+        "detail": "Menjadi ruang membaca, mencari referensi, dan mengembangkan budaya literasi siswa.",
+        "building": "Gedung Madrasah",
+        "floor": "1",
+        "area": "Ruang fasilitas",
+        "equipment": "Data peralatan dapat diperbarui sesuai inventaris resmi madrasah."
+      },
+      {
+        "category": "Penunjang",
+        "title": "Ruang UKS",
+        "description": "Ruang layanan kesehatan dan pertolongan pertama bagi warga madrasah.",
+        "image": "",
+        "detail": "Mendukung layanan kesehatan dasar, pertolongan pertama, dan pemantauan kesehatan siswa di lingkungan madrasah.",
+        "building": "Gedung Madrasah",
+        "floor": "1",
+        "area": "Ruang fasilitas",
+        "equipment": "Data peralatan dapat diperbarui sesuai inventaris resmi madrasah."
+      },
+      {
+        "category": "Penunjang",
+        "title": "Lapangan Kegiatan",
+        "description": "Area terbuka untuk olahraga, upacara, dan kegiatan pengembangan diri siswa.",
+        "image": "",
+        "detail": "Dimanfaatkan untuk olahraga, upacara, kegiatan ekstrakurikuler, dan aktivitas bersama warga madrasah.",
+        "building": "Gedung Madrasah",
+        "floor": "1",
+        "area": "Ruang fasilitas",
+        "equipment": "Data peralatan dapat diperbarui sesuai inventaris resmi madrasah."
+      },
+      {
+        "category": "Penunjang",
+        "title": "Ruang Serbaguna",
+        "description": "Ruang fleksibel untuk pertemuan, kegiatan siswa, dan acara madrasah.",
+        "image": "",
+        "detail": "Ruang multifungsi untuk rapat, kegiatan organisasi siswa, pelatihan, dan agenda madrasah.",
+        "building": "Gedung Madrasah",
+        "floor": "1",
+        "area": "Ruang fasilitas",
+        "equipment": "Data peralatan dapat diperbarui sesuai inventaris resmi madrasah."
+      },
+      {
+        "category": "Penunjang",
+        "title": "Kelas Digital",
+        "description": "Ruang belajar yang mendukung penggunaan media dan teknologi digital.",
+        "image": "",
+        "detail": "Mendukung pembelajaran interaktif melalui perangkat digital dan media pembelajaran multimedia.",
+        "building": "Gedung Madrasah",
+        "floor": "1",
+        "area": "Ruang fasilitas",
+        "equipment": "Data peralatan dapat diperbarui sesuai inventaris resmi madrasah."
+      }
+    ]
+  },
+  "denah-sekolah": {
+    "map": {
+      "eyebrow": "DENAH LINGKUNGAN",
+      "title": "Area MTsN 1 Karanganyar",
+      "subtitle": "Ilustrasi tata letak fasilitas madrasah",
+      "road": "JALAN UTAMA",
+      "gate": "GERBANG\nUTAMA",
+      "office": "KANTOR\n& TU",
+      "classes": [
+        "KELAS\n7A",
+        "KELAS\n7B",
+        "KELAS\n8A",
+        "KELAS\n8B"
+      ],
+      "laboratory": "LABORATORIUM\nIPA & KOMPUTER",
+      "library": "PERPUSTAKAAN",
+      "uks": "RUANG UKS",
+      "field": "LAPANGAN KEGIATAN",
+      "hall": "RUANG\nSERBAGUNA",
+      "legendTitle": "Keterangan:"
+    },
+    "legend": [
+      {
+        "label": "Gerbang utama",
+        "type": "orange"
+      },
+      {
+        "label": "Ruang kelas dan kantor",
+        "type": "building"
+      },
+      {
+        "label": "Fasilitas pendukung",
+        "type": "yellow"
+      },
+      {
+        "label": "Lapangan dan area hijau",
+        "type": "green"
+      },
+      {
+        "label": "Akses jalan",
+        "type": "path"
+      }
+    ]
+  },
+  "struktur-organisasi": {
+    "chart": {
+      "sectionTitle": "Pilar Kepengurusan",
+      "headmaster": "Nama Kepala Madrasah",
+      "headmasterRole": "Kepala Madrasah",
+      "committee": "Komite Madrasah",
+      "administration": "Kepala Urusan Tata Usaha",
+      "vicePrincipals": [
+        {
+          "name": "Nama Wakamad",
+          "role": "Kurikulum"
+        },
+        {
+          "name": "Nama Wakamad",
+          "role": "Kesiswaan"
+        },
+        {
+          "name": "Nama Wakamad",
+          "role": "Sarana Prasarana"
+        },
+        {
+          "name": "Nama Wakamad",
+          "role": "Humas"
+        }
+      ],
+      "teachers": "Guru",
+      "staff": "Tenaga Kependidikan (Tendik)",
+      "students": "Siswa"
+    },
+    "contact": {
+      "eyebrow": "LAYANAN INFORMASI MADRASAH",
+      "title": "Butuh informasi lebih lanjut?",
+      "description": "Hubungi tim tata usaha untuk mendapatkan informasi resmi mengenai layanan, program, dan kegiatan madrasah.",
+      "primaryLabel": "Hubungi Tata Usaha",
+      "primaryLink": "#kontak",
+      "secondaryLabel": "Lihat Informasi Madrasah",
+      "secondaryLink": "#informasi"
+    }
+  },
+  "direktori-tendik": {
+    "sectionTitle": "Jajaran Tenaga Kependidikan",
+    "people": [
+      {
+        "name": "Siti Nurhasanah, S.Pd.",
+        "role": "Kepala TU",
+        "nip": "NIP. 19790514 200501 2 004",
+        "unit": "TU • Umum",
+        "image": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        "name": "Agus Wibowo, S.E.",
+        "role": "Kasubag Keuangan",
+        "nip": "NIP. 19820409 201903 1 002",
+        "unit": "TU • Keuangan",
+        "image": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        "name": "Rahayu Dwi, S.Kom.",
+        "role": "Operator SIAKAD",
+        "nip": "NIP. 19890818 202012 2 011",
+        "unit": "TU • Akademik",
+        "image": "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        "name": "M. Yusuf, A.Md.",
+        "role": "Staff Perpustakaan",
+        "nip": "NIP. 19831121 201903 1 006",
+        "unit": "Perpustakaan",
+        "image": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        "name": "Lia Septiani, A.Md.",
+        "role": "Petugas Laboratorium",
+        "nip": "NIP. 19920217 202012 2 014",
+        "unit": "Lab • IPA",
+        "image": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        "name": "Arif Setyawan, S.H.",
+        "role": "Staff Umum",
+        "nip": "NIP. 19850730 201903 1 009",
+        "unit": "TU • Umum",
+        "image": "https://images.unsplash.com/photo-1504593811423-6dd665756598?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        "name": "Novi Kartika, S.Pd.",
+        "role": "Petugas Administrasi",
+        "nip": "NIP. 19910425 202012 2 015",
+        "unit": "TU • Administrasi",
+        "image": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        "name": "Doni Saputra, A.Md.",
+        "role": "Teknisi Komputer",
+        "nip": "NIP. 19880612 201903 1 001",
+        "unit": "IT • Infrastruktur",
+        "image": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        "name": "Eva Anggraini, S.Kom.",
+        "role": "Staff Kurikulum",
+        "nip": "NIP. 19890901 202012 2 017",
+        "unit": "Kurikulum",
+        "image": "https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        "name": "Tri Wahyudi, S.E.",
+        "role": "Kasubag Sarana",
+        "nip": "NIP. 19870605 201903 1 010",
+        "unit": "Sarana • Prasarana",
+        "image": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        "name": "Fitri Handayani, A.Md.",
+        "role": "Petugas Kesiswaan",
+        "nip": "NIP. 19900809 202012 2 021",
+        "unit": "Kesiswaan",
+        "image": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        "name": "Hadi Prasetyo, S.H.",
+        "role": "Staff Humas",
+        "nip": "NIP. 19840218 201903 1 013",
+        "unit": "Humas",
+        "image": "https://images.unsplash.com/photo-1504593811423-6dd665756598?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        "name": "Indah Pratiwi, S.E.",
+        "role": "Petugas Pembukuan",
+        "nip": "NIP. 19910614 202012 2 018",
+        "unit": "TU • Keuangan",
+        "image": "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        "name": "Ali Mustofa, A.Md.",
+        "role": "Teknisi Laboratorium",
+        "nip": "NIP. 19891026 201903 1 016",
+        "unit": "Lab • Komputer",
+        "image": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        "name": "Rina Safitri, S.Pd.",
+        "role": "Staff Pustaka",
+        "nip": "NIP. 19921208 202012 2 019",
+        "unit": "Perpustakaan",
+        "image": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        "name": "Fajar Nugraha, S.T.",
+        "role": "Teknisi Jaringan",
+        "nip": "NIP. 19880412 201903 1 008",
+        "unit": "IT • Jaringan",
+        "image": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        "name": "Ayu Lestari, S.Sos.",
+        "role": "Staff Bimbingan",
+        "nip": "NIP. 19900323 202012 2 022",
+        "unit": "BK • Administrasi",
+        "image": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        "name": "Rizky Ananda, S.Kom.",
+        "role": "Operator Nilai",
+        "nip": "NIP. 19870927 201903 1 014",
+        "unit": "TU • Akademik",
+        "image": "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        "name": "Maya Rachmawati, A.Md.",
+        "role": "Petugas Kebersihan",
+        "nip": "NIP. 19920805 202012 2 023",
+        "unit": "Sarana • Kebersihan",
+        "image": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        "name": "Heru Kurniawan, S.E.",
+        "role": "Kasubag Logistik",
+        "nip": "NIP. 19851109 201903 1 011",
+        "unit": "Sarana • Logistik",
+        "image": "https://images.unsplash.com/photo-1504593811423-6dd665756598?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        "name": "Dinda Puspita, S.Pd.",
+        "role": "Staff Tata Usaha",
+        "nip": "NIP. 19911210 202012 2 024",
+        "unit": "TU • Umum",
+        "image": "https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        "name": "Wahyu Setiawan, A.Md.",
+        "role": "Petugas Asset",
+        "nip": "NIP. 19860214 201903 1 020",
+        "unit": "Sarana • Aset",
+        "image": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        "name": "Salsabila, S.Kom.",
+        "role": "Staff Pelayanan",
+        "nip": "NIP. 19930519 202012 2 026",
+        "unit": "TU • Pelayanan",
+        "image": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        "name": "Ari Wicaksono, S.T.",
+        "role": "Teknisi Ruang Kelas",
+        "nip": "NIP. 19880114 201903 1 027",
+        "unit": "Sarana • Gedung",
+        "image": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        "name": "Kiki Maulidia, A.Md.",
+        "role": "Petugas Arsip",
+        "nip": "NIP. 19920430 202012 2 028",
+        "unit": "TU • Arsip",
+        "image": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        "name": "Rian Pratama, S.E.",
+        "role": "Staff Evaluasi",
+        "nip": "NIP. 19871223 201903 1 029",
+        "unit": "TU • Evaluasi",
+        "image": "https://images.unsplash.com/photo-1504593811423-6dd665756598?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        "name": "Nadya Oktavia, S.Kom.",
+        "role": "Koordinator IT",
+        "nip": "NIP. 19911018 202012 2 030",
+        "unit": "IT • Koordinasi",
+        "image": "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        "name": "Bima Kusuma, A.Md.",
+        "role": "Petugas Gudang",
+        "nip": "NIP. 19860508 201903 1 031",
+        "unit": "Sarana • Gudang",
+        "image": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        "name": "Septi Rahayu, S.E.",
+        "role": "Staff Pelaporan",
+        "nip": "NIP. 19930921 202012 2 032",
+        "unit": "TU • Pelaporan",
+        "image": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        "name": "Yogi Santoso, S.T.",
+        "role": "Teknisi CCTV",
+        "nip": "NIP. 19850204 201903 1 033",
+        "unit": "IT • Keamanan",
+        "image": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=900&q=80"
+      }
+    ]
+  },
+  "komite-madrasah": {
+    "sections": {
+      "introTitle": "Bersama Membangun Madrasah",
+      "introDescription": "Komite Madrasah hadir sebagai ruang kolaborasi antara orang tua, masyarakat, dan madrasah untuk mendukung pendidikan yang bermutu, terbuka, dan berkelanjutan.",
+      "rolesTitle": "Kolaborasi untuk Pendidikan",
+      "rolesDescription": "Komite mendukung madrasah melalui partisipasi, pertimbangan, pengawasan, dan tindak lanjut aspirasi warga sekolah."
+    },
+    "members": [
+      {
+        "number": "01",
+        "title": "Ketua Komite",
+        "description": "Menguatkan kemitraan antara madrasah, keluarga, dan masyarakat.",
+        "icon": "✦"
+      },
+      {
+        "number": "02",
+        "title": "Wakil Ketua",
+        "description": "Mendukung koordinasi program dan aspirasi orang tua peserta didik.",
+        "icon": "◈"
+      },
+      {
+        "number": "03",
+        "title": "Sekretaris",
+        "description": "Mengelola administrasi, dokumentasi, dan komunikasi komite.",
+        "icon": "▤"
+      },
+      {
+        "number": "04",
+        "title": "Bendahara",
+        "description": "Menjaga pengelolaan dukungan masyarakat secara tertib dan transparan.",
+        "icon": "◉"
+      }
+    ],
+    "roles": [
+      {
+        "number": "01",
+        "title": "Memberi pertimbangan",
+        "description": "Memberikan masukan terhadap kebijakan dan program pengembangan madrasah."
+      },
+      {
+        "number": "02",
+        "title": "Mendukung partisipasi",
+        "description": "Mengajak orang tua dan masyarakat berkontribusi sesuai kemampuan dan kebutuhan."
+      },
+      {
+        "number": "03",
+        "title": "Menjaga transparansi",
+        "description": "Mendorong pengelolaan dukungan pendidikan yang terbuka, bertanggung jawab, dan akuntabel."
+      }
+    ]
+  },
+  "tata-tertib": {
+    "section": {
+      "title": "Tumbuh dalam sikap yang baik.",
+      "description": "Kebiasaan positif membantu seluruh warga madrasah belajar dan beraktivitas dengan nyaman."
+    },
+    "principles": [
+      {
+        "number": "01",
+        "title": "Sikap saling menghormati",
+        "description": "Menjaga tutur kata dan menghargai sesama warga madrasah dalam kegiatan sehari-hari."
+      },
+      {
+        "number": "02",
+        "title": "Tanggung jawab belajar",
+        "description": "Mengikuti kegiatan pembelajaran dengan tertib dan menjalankan tanggung jawab sebagai pelajar."
+      },
+      {
+        "number": "03",
+        "title": "Kepedulian lingkungan",
+        "description": "Ikut menjaga kebersihan, ketertiban, dan fasilitas yang digunakan bersama."
+      }
+    ],
+    "notice": {
+      "sectionTitle": "Rujuk ketentuan madrasah.",
+      "title": "Dokumen tata tertib resmi",
+      "description": "Ringkasan di atas merupakan prinsip umum. Ketentuan lengkap, jadwal, dan konsekuensi tetap mengikuti dokumen tata tertib resmi yang berlaku di madrasah."
+    }
+  },
+  "kemitraan": {
+    "section": {
+      "title": "Bertumbuh melalui kerja sama.",
+      "description": "Kemitraan dapat mendukung kegiatan pendidikan melalui kolaborasi yang selaras dengan tujuan dan kebutuhan madrasah."
+    },
+    "areas": [
+      {
+        "number": "01",
+        "title": "Pembelajaran",
+        "description": "Kolaborasi yang mendukung pengalaman belajar dan pengembangan kompetensi siswa."
+      },
+      {
+        "number": "02",
+        "title": "Pengembangan siswa",
+        "description": "Kegiatan yang membuka ruang bagi minat, bakat, dan karakter peserta didik."
+      },
+      {
+        "number": "03",
+        "title": "Lingkungan dan masyarakat",
+        "description": "Inisiatif bersama yang memberi manfaat bagi lingkungan madrasah dan masyarakat."
+      }
+    ],
+    "notice": {
+      "sectionTitle": "Informasi mitra terverifikasi.",
+      "noticeTitle": "Daftar kemitraan akan diperbarui",
+      "description": "Nama lembaga dan bentuk kerja sama hanya akan dicantumkan setelah dikonfirmasi oleh madrasah."
+    }
+  },
+  "minat-dan-bakat": {
+    "programsTitle": "Beragam Kegiatan",
+    "programs": [
+      {
+        "name": "OSIS",
+        "slug": "osis",
+        "category": "Organisasi",
+        "description": "Belajar memimpin, menyampaikan gagasan, dan ikut berperan dalam kegiatan madrasah.",
+        "details": "OSIS menjadi ruang bagi siswa untuk belajar berorganisasi, merancang program, menyampaikan aspirasi, dan bekerja sama menyelenggarakan kegiatan madrasah.",
+        "image": "https://images.unsplash.com/photo-1529390079861-591de354faf5?auto=format&fit=crop&w=900&q=85",
+        "imageAlt": "Siswa berdiskusi dalam kegiatan organisasi",
+        "documentation": [
+          {
+            "title": "Diskusi dan perencanaan program",
+            "description": "Anggota bertukar gagasan dan menyusun kegiatan bersama.",
+            "image": "https://images.unsplash.com/photo-1529390079861-591de354faf5?auto=format&fit=crop&w=1000&q=85",
+            "alt": "Siswa berdiskusi merencanakan kegiatan"
+          },
+          {
+            "title": "Belajar bekerja sama",
+            "description": "Setiap anggota belajar menjalankan peran dan tanggung jawabnya.",
+            "image": "https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?auto=format&fit=crop&w=1000&q=85",
+            "alt": "Siswa bekerja sama dalam kegiatan"
+          },
+          {
+            "title": "Menyampaikan gagasan",
+            "description": "Kegiatan organisasi melatih komunikasi dan kepercayaan diri.",
+            "image": "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1000&q=85",
+            "alt": "Siswa menyampaikan gagasan di kelas"
+          }
+        ]
+      },
+      {
+        "name": "Dewan Penggalang",
+        "slug": "dewan-penggalang",
+        "category": "Kepemimpinan",
+        "description": "Mengembangkan kemandirian, kedisiplinan, dan keterampilan kepramukaan.",
+        "details": "Dewan Penggalang memberi kesempatan kepada anggota Pramuka untuk berlatih memimpin regu, bermusyawarah, dan merancang kegiatan yang bermanfaat.",
+        "image": "https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=900&q=85",
+        "imageAlt": "Kelompok siswa mengikuti kegiatan bersama",
+        "documentation": [
+          {
+            "title": "Kebersamaan dalam regu",
+            "description": "Anggota belajar saling mendukung dan menyelesaikan tantangan bersama.",
+            "image": "https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=1000&q=85",
+            "alt": "Kelompok siswa mengikuti kegiatan bersama"
+          },
+          {
+            "title": "Latihan kepemimpinan",
+            "description": "Anggota bergiliran memimpin dan mengambil tanggung jawab.",
+            "image": "https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?auto=format&fit=crop&w=1000&q=85",
+            "alt": "Suasana kegiatan luar ruang dan kepramukaan"
+          },
+          {
+            "title": "Belajar di alam terbuka",
+            "description": "Aktivitas luar ruang melatih kemandirian dan kepedulian terhadap lingkungan.",
+            "image": "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1000&q=85",
+            "alt": "Pemandangan alam untuk kegiatan luar ruang"
+          }
+        ]
+      },
+      {
+        "name": "PMR",
+        "slug": "pmr",
+        "category": "Kemanusiaan",
+        "description": "Menumbuhkan kepedulian, kesiapsiagaan, dan semangat menolong sesama.",
+        "details": "Palang Merah Remaja mengajak siswa mengenal kepedulian kemanusiaan, pertolongan pertama, kesehatan, dan kesiapsiagaan melalui latihan bersama.",
+        "image": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=900&q=85",
+        "imageAlt": "Peralatan kesehatan untuk kegiatan kepalangmerahan",
+        "documentation": [
+          {
+            "title": "Mengenal kesehatan",
+            "description": "Siswa mempelajari pengetahuan dasar untuk menjaga kesehatan.",
+            "image": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1000&q=85",
+            "alt": "Kegiatan belajar tentang kesehatan"
+          },
+          {
+            "title": "Latihan pertolongan pertama",
+            "description": "Latihan membangun kesiapsiagaan dan kepedulian terhadap sesama.",
+            "image": "https://images.unsplash.com/photo-1584982751601-97dcc096659c?auto=format&fit=crop&w=1000&q=85",
+            "alt": "Perlengkapan untuk latihan pertolongan pertama"
+          },
+          {
+            "title": "Berbagi pengetahuan",
+            "description": "Anggota belajar menyampaikan informasi kesehatan dengan jelas.",
+            "image": "https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=1000&q=85",
+            "alt": "Siswa melakukan kegiatan praktik"
+          }
+        ]
+      },
+      {
+        "name": "Pramuka",
+        "slug": "pramuka",
+        "category": "Kegiatan wajib",
+        "description": "Kegiatan wajib untuk melatih disiplin, kerja sama, tanggung jawab, dan cinta alam.",
+        "details": "Melalui kegiatan rutin dan latihan di luar ruang, Pramuka membantu siswa membangun kedisiplinan, kemandirian, tanggung jawab, serta semangat gotong royong.",
+        "image": "https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?auto=format&fit=crop&w=900&q=85",
+        "imageAlt": "Suasana kegiatan luar ruang dan kepramukaan",
+        "required": true,
+        "documentation": [
+          {
+            "title": "Latihan kepramukaan",
+            "description": "Siswa berlatih keterampilan dan kedisiplinan bersama regu.",
+            "image": "https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?auto=format&fit=crop&w=1000&q=85",
+            "alt": "Suasana kegiatan luar ruang dan kepramukaan"
+          },
+          {
+            "title": "Belajar dalam regu",
+            "description": "Kerja sama menjadi bagian penting dalam setiap latihan.",
+            "image": "https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=1000&q=85",
+            "alt": "Kelompok siswa berkegiatan bersama"
+          },
+          {
+            "title": "Mencintai lingkungan",
+            "description": "Aktivitas luar ruang mengajak siswa mengenal dan menjaga alam.",
+            "image": "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1000&q=85",
+            "alt": "Lingkungan alam untuk kegiatan kepramukaan"
+          }
+        ]
+      },
+      {
+        "name": "Futsal",
+        "slug": "futsal",
+        "category": "Olahraga",
+        "description": "Melatih kebugaran, koordinasi, sportivitas, dan kekompakan dalam tim.",
+        "details": "Latihan futsal mengembangkan keterampilan dasar bermain, kebugaran, komunikasi, dan sportivitas. Siswa belajar menghargai rekan satu tim maupun lawan.",
+        "image": "https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&w=900&q=85",
+        "imageAlt": "Lapangan sepak bola untuk kegiatan futsal",
+        "documentation": [
+          {
+            "title": "Latihan teknik dasar",
+            "description": "Siswa berlatih mengolah bola dan meningkatkan koordinasi gerak.",
+            "image": "https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&w=1000&q=85",
+            "alt": "Bola dalam latihan olahraga"
+          },
+          {
+            "title": "Bermain sebagai tim",
+            "description": "Komunikasi dan kekompakan dibangun melalui permainan bersama.",
+            "image": "https://images.unsplash.com/photo-1521412644187-c49fa049e84d?auto=format&fit=crop&w=1000&q=85",
+            "alt": "Pemain sepak bola berlatih bersama"
+          },
+          {
+            "title": "Menjaga sportivitas",
+            "description": "Setiap latihan menjadi kesempatan untuk disiplin dan saling menghargai.",
+            "image": "https://images.unsplash.com/photo-1517466787929-bc90951d0974?auto=format&fit=crop&w=1000&q=85",
+            "alt": "Pertandingan olahraga tim"
+          }
+        ]
+      },
+      {
+        "name": "Taekwondo",
+        "slug": "taekwondo",
+        "category": "Olahraga bela diri",
+        "description": "Membangun fokus, kedisiplinan, kepercayaan diri, dan kebugaran tubuh.",
+        "details": "Latihan Taekwondo menggabungkan kebugaran, teknik dasar bela diri, konsentrasi, dan pengendalian diri dalam suasana latihan yang disiplin.",
+        "image": "https://images.unsplash.com/photo-1555597673-b21d5c935865?auto=format&fit=crop&w=900&q=85",
+        "imageAlt": "Atlet berlatih seni bela diri",
+        "documentation": [
+          {
+            "title": "Latihan teknik",
+            "description": "Siswa berlatih gerakan dasar dengan fokus dan pengawasan.",
+            "image": "https://images.unsplash.com/photo-1555597673-b21d5c935865?auto=format&fit=crop&w=1000&q=85",
+            "alt": "Atlet berlatih seni bela diri"
+          },
+          {
+            "title": "Membangun kebugaran",
+            "description": "Latihan fisik membantu membangun keseimbangan dan daya tahan.",
+            "image": "https://images.unsplash.com/photo-1555597673-b21d5c935865?auto=format&fit=crop&w=1000&q=85",
+            "alt": "Latihan kebugaran dan olahraga"
+          },
+          {
+            "title": "Disiplin dan percaya diri",
+            "description": "Latihan rutin mengajarkan pengendalian diri dan ketekunan.",
+            "image": "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=1000&q=85",
+            "alt": "Latihan fokus dan kebugaran tubuh"
+          }
+        ]
+      },
+      {
+        "name": "Bola Voli",
+        "slug": "bola-voli",
+        "category": "Olahraga",
+        "description": "Mengasah ketangkasan, komunikasi, dan kerja sama melalui permainan beregu.",
+        "details": "Kegiatan bola voli melatih teknik dasar, koordinasi, komunikasi, dan kerja sama tim. Siswa berlatih untuk bermain dengan sportif dan saling mendukung.",
+        "image": "https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?auto=format&fit=crop&w=900&q=85",
+        "imageAlt": "Pertandingan bola voli",
+        "documentation": [
+          {
+            "title": "Latihan teknik dasar",
+            "description": "Siswa berlatih servis, passing, dan gerak dasar permainan.",
+            "image": "https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?auto=format&fit=crop&w=1000&q=85",
+            "alt": "Siswa berlatih bola voli"
+          },
+          {
+            "title": "Kerja sama tim",
+            "description": "Komunikasi antarpemain membantu membangun permainan yang kompak.",
+            "image": "https://images.unsplash.com/photo-1592656094267-764a45160876?auto=format&fit=crop&w=1000&q=85",
+            "alt": "Pemain melakukan latihan olahraga beregu"
+          },
+          {
+            "title": "Bermain dengan sportif",
+            "description": "Latihan dan pertandingan mengajarkan sikap saling menghargai.",
+            "image": "https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&w=1000&q=85",
+            "alt": "Suasana pertandingan olahraga"
+          }
+        ]
+      }
+    ],
+    "faqLabel": "INFORMASI MINAT DAN BAKAT",
+    "faqTitle": "FAQ & Panduan Minat dan Bakat",
+    "faqDescription": "Temukan jawaban seputar pilihan kegiatan, jadwal, dan cara mengembangkan potensi bersama teman-teman di madrasah.",
+    "faqs": [
+      {
+        "question": "Bagaimana cara memilih kegiatan yang sesuai minat dan bakat?",
+        "answer": "Mulailah dari kegiatan yang paling kamu sukai. Pelajari setiap program, lalu diskusikan pilihanmu dengan pembina atau wali kelas agar sesuai dengan minat, kemampuan, dan jadwalmu."
+      },
+      {
+        "question": "Bagaimana cara mengetahui jadwal kegiatan?",
+        "answer": "Jadwal dan lokasi kegiatan dapat berubah. Tanyakan langsung kepada pembina kegiatan atau pantau pengumuman resmi madrasah."
+      },
+      {
+        "question": "Bolehkah mengikuti lebih dari satu kegiatan?",
+        "answer": "Ketentuannya bergantung pada jadwal dan aturan tiap program. Pastikan kegiatan yang dipilih tidak berbenturan, lalu konfirmasikan kepada pembina."
+      },
+      {
+        "question": "Apa manfaat mengikuti kegiatan minat dan bakat?",
+        "answer": "Kegiatan memberi kesempatan untuk berlatih, bekerja sama, membangun disiplin, dan mengembangkan potensi di luar pembelajaran kelas."
+      },
+      {
+        "question": "Apa yang perlu dipersiapkan sebelum ikut kegiatan?",
+        "answer": "Cari tahu perlengkapan, persyaratan, jadwal, dan cara bergabung langsung dari pembina kegiatan yang kamu pilih."
+      }
+    ]
+  },
+  "kalender-akademik": {
+    "sectionTitle": "Rencanakan Kegiatan",
+    "calendar": {
+      "year": 2026,
+      "events": [
+        {
+          "month": 0,
+          "day": 5,
+          "title": "Upacara Pancasila",
+          "tone": "mint",
+          "date": "05 Januari 2026"
+        },
+        {
+          "month": 0,
+          "day": 8,
+          "title": "PTS Ganjil H-1",
+          "tone": "orange",
+          "date": "08 Januari 2026"
+        },
+        {
+          "month": 0,
+          "day": 9,
+          "title": "PTS Ganjil H-2",
+          "tone": "orange",
+          "date": "09 Januari 2026"
+        },
+        {
+          "month": 0,
+          "day": 10,
+          "title": "PTS Ganjil H-3",
+          "tone": "orange",
+          "date": "10 Januari 2026"
+        },
+        {
+          "month": 0,
+          "day": 11,
+          "title": "PTS Ganjil H-4",
+          "tone": "orange",
+          "date": "11 Januari 2026"
+        },
+        {
+          "month": 0,
+          "day": 12,
+          "title": "PTS Ganjil H-5",
+          "tone": "orange",
+          "date": "12 Januari 2026"
+        },
+        {
+          "month": 1,
+          "day": 12,
+          "title": "Hari Kartini",
+          "tone": "beige",
+          "date": "12 Februari 2026"
+        },
+        {
+          "month": 1,
+          "day": 20,
+          "title": "Rapat Komite",
+          "tone": "blue",
+          "date": "20 Februari 2026"
+        },
+        {
+          "month": 2,
+          "day": 3,
+          "title": "Monitoring Kelas",
+          "tone": "mint",
+          "date": "03 Maret 2026"
+        },
+        {
+          "month": 2,
+          "day": 21,
+          "title": "Ujian Praktik",
+          "tone": "orange",
+          "date": "21 Maret 2026"
+        },
+        {
+          "month": 3,
+          "day": 1,
+          "title": "Awal Bulan",
+          "tone": "navy",
+          "date": "01 April 2026"
+        },
+        {
+          "month": 3,
+          "day": 15,
+          "title": "Pekan Kreativitas",
+          "tone": "rose",
+          "date": "15 April 2026"
+        },
+        {
+          "month": 4,
+          "day": 2,
+          "title": "Kegiatan Keagamaan",
+          "tone": "mint",
+          "date": "02 Mei 2026"
+        },
+        {
+          "month": 4,
+          "day": 16,
+          "title": "Lomba Sains",
+          "tone": "orange",
+          "date": "16 Mei 2026"
+        },
+        {
+          "month": 5,
+          "day": 5,
+          "title": "Study Tour",
+          "tone": "blue",
+          "date": "05 Juni 2026"
+        },
+        {
+          "month": 5,
+          "day": 17,
+          "title": "Ujian Sekolah",
+          "tone": "orange",
+          "date": "17 Juni 2026"
+        },
+        {
+          "month": 6,
+          "day": 1,
+          "title": "Awal Semester",
+          "tone": "mint",
+          "date": "01 Juli 2026"
+        },
+        {
+          "month": 6,
+          "day": 24,
+          "title": "Wisuda Kelas XII",
+          "tone": "navy",
+          "date": "24 Juli 2026"
+        },
+        {
+          "month": 7,
+          "day": 8,
+          "title": "Pekan Literasi",
+          "tone": "beige",
+          "date": "08 Agustus 2026"
+        },
+        {
+          "month": 7,
+          "day": 19,
+          "title": "Try Out",
+          "tone": "orange",
+          "date": "19 Agustus 2026"
+        },
+        {
+          "month": 8,
+          "day": 3,
+          "title": "Seminar",
+          "tone": "blue",
+          "date": "03 September 2026"
+        },
+        {
+          "month": 8,
+          "day": 18,
+          "title": "Kenaikan Kelas",
+          "tone": "mint",
+          "date": "18 September 2026"
+        },
+        {
+          "month": 9,
+          "day": 5,
+          "title": "Pawai Sekolah",
+          "tone": "mint",
+          "date": "05 Oktober 2026"
+        },
+        {
+          "month": 9,
+          "day": 20,
+          "title": "Rapor Siswa",
+          "tone": "blue",
+          "date": "20 Oktober 2026"
+        },
+        {
+          "month": 9,
+          "day": 28,
+          "title": "Upacara Bendera",
+          "tone": "navy",
+          "date": "28 Oktober 2026"
+        },
+        {
+          "month": 10,
+          "day": 10,
+          "title": "Hari Guru",
+          "tone": "beige",
+          "date": "10 November 2026"
+        },
+        {
+          "month": 10,
+          "day": 27,
+          "title": "Sumpah Pemuda",
+          "tone": "navy",
+          "date": "27 November 2026"
+        },
+        {
+          "month": 11,
+          "day": 12,
+          "title": "Penilaian Akhir",
+          "tone": "orange",
+          "date": "12 Desember 2026"
+        },
+        {
+          "month": 11,
+          "day": 25,
+          "title": "Libur Akhir Tahun",
+          "tone": "mint",
+          "date": "25 Desember 2026"
+        }
+      ],
+      "agenda": [
+        {
+          "month": 0,
+          "date": "05 Januari 2026",
+          "title": "Upacara Pancasila",
+          "tone": "mint"
+        },
+        {
+          "month": 0,
+          "date": "08 - 12 Januari 2026",
+          "title": "Pelaksanaan PTS Ganjil",
+          "tone": "orange"
+        },
+        {
+          "month": 1,
+          "date": "12 Februari 2026",
+          "title": "Hari Kartini",
+          "tone": "beige"
+        },
+        {
+          "month": 1,
+          "date": "20 Februari 2026",
+          "title": "Rapat Komite",
+          "tone": "blue"
+        },
+        {
+          "month": 2,
+          "date": "03 Maret 2026",
+          "title": "Monitoring Kelas",
+          "tone": "mint"
+        },
+        {
+          "month": 2,
+          "date": "21 Maret 2026",
+          "title": "Ujian Praktik",
+          "tone": "orange"
+        },
+        {
+          "month": 3,
+          "date": "15 April 2026",
+          "title": "Pekan Kreativitas",
+          "tone": "rose"
+        },
+        {
+          "month": 4,
+          "date": "02 Mei 2026",
+          "title": "Kegiatan Keagamaan",
+          "tone": "mint"
+        },
+        {
+          "month": 4,
+          "date": "16 Mei 2026",
+          "title": "Lomba Sains",
+          "tone": "orange"
+        },
+        {
+          "month": 5,
+          "date": "05 Juni 2026",
+          "title": "Study Tour",
+          "tone": "blue"
+        },
+        {
+          "month": 5,
+          "date": "17 Juni 2026",
+          "title": "Ujian Sekolah",
+          "tone": "orange"
+        },
+        {
+          "month": 6,
+          "date": "01 Juli 2026",
+          "title": "Awal Semester Baru",
+          "tone": "mint"
+        },
+        {
+          "month": 6,
+          "date": "24 Juli 2026",
+          "title": "Wisuda Kelas XII",
+          "tone": "navy"
+        },
+        {
+          "month": 7,
+          "date": "08 Agustus 2026",
+          "title": "Pekan Literasi",
+          "tone": "beige"
+        },
+        {
+          "month": 7,
+          "date": "19 Agustus 2026",
+          "title": "Try Out",
+          "tone": "orange"
+        },
+        {
+          "month": 8,
+          "date": "03 September 2026",
+          "title": "Seminar",
+          "tone": "blue"
+        },
+        {
+          "month": 8,
+          "date": "18 September 2026",
+          "title": "Kenaikan Kelas",
+          "tone": "mint"
+        },
+        {
+          "month": 9,
+          "date": "05 Oktober 2026",
+          "title": "Pawai Sekolah",
+          "tone": "mint"
+        },
+        {
+          "month": 9,
+          "date": "20 Oktober 2026",
+          "title": "Rapor Siswa",
+          "tone": "blue"
+        },
+        {
+          "month": 10,
+          "date": "10 November 2026",
+          "title": "Hari Guru",
+          "tone": "beige"
+        },
+        {
+          "month": 10,
+          "date": "27 November 2026",
+          "title": "Sumpah Pemuda",
+          "tone": "navy"
+        },
+        {
+          "month": 11,
+          "date": "12 Desember 2026",
+          "title": "Penilaian Akhir",
+          "tone": "orange"
+        },
+        {
+          "month": 11,
+          "date": "25 Desember 2026",
+          "title": "Libur Akhir Tahun",
+          "tone": "mint"
+        }
+      ]
+    },
+    "download": {
+      "label": "DOWNLOAD KALENDER",
+      "title": "Kalender Akademik 2026",
+      "period": "Semester Ganjil & Genap",
+      "description": "Untuk jadwal pembelajaran, ujian, dan kegiatan sekolah",
+      "url": "",
+      "fileSize": "2.4 MB"
+    }
+  },
+  "program-khusus": {},
+  "testimoni-alumni": {
+    "section": {
+      "title": "Cerita dari Alumni",
+      "description": "Pengalaman alumni yang dibagikan dengan persetujuan untuk dipublikasikan."
+    },
+    "testimonials": []
+  },
+  "galeri": {
+    "galleryTitle": "Momen Berharga MTsN 1 Karanganyar",
+    "galleryDescription": "Potret Kegiatan & Kebersamaan",
+    "categories": [
+      "Semua Kegiatan",
+      "Pembelajaran",
+      "Upacara & Karakter",
+      "Keagamaan",
+      "Ekstrakurikuler"
+    ],
+    "items": [
+      {
+        "title": "Upacara Bendera",
+        "category": "Upacara & Karakter",
+        "image": "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1000&q=85",
+        "alt": "Siswa mengikuti upacara bendera"
+      },
+      {
+        "title": "Amanat Pembina Upacara",
+        "category": "Upacara & Karakter",
+        "image": "https://images.unsplash.com/photo-1529390079861-591de354faf5?auto=format&fit=crop&w=1000&q=85",
+        "alt": "Pembina menyampaikan amanat upacara"
+      },
+      {
+        "title": "Kegiatan Keagamaan",
+        "category": "Keagamaan",
+        "image": "https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=1000&q=85",
+        "alt": "Siswa mengikuti kegiatan keagamaan"
+      },
+      {
+        "title": "Pembelajaran Taman",
+        "category": "Ekstrakurikuler",
+        "image": "https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?auto=format&fit=crop&w=1000&q=85",
+        "alt": "Siswa belajar di lingkungan taman"
+      },
+      {
+        "title": "Lingkungan Hijau",
+        "category": "Ekstrakurikuler",
+        "image": "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?auto=format&fit=crop&w=1000&q=85",
+        "alt": "Kegiatan peduli lingkungan madrasah"
+      },
+      {
+        "title": "Gotong Royong",
+        "category": "Upacara & Karakter",
+        "image": "https://images.unsplash.com/photo-1559027615-cd4628902d4a?auto=format&fit=crop&w=1000&q=85",
+        "alt": "Siswa bekerja sama dalam kegiatan sekolah"
+      },
+      {
+        "title": "Praktikum Sains",
+        "category": "Pembelajaran",
+        "image": "https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=1000&q=85",
+        "alt": "Siswa melakukan praktikum sains"
+      },
+      {
+        "title": "Belajar di Perpustakaan",
+        "category": "Pembelajaran",
+        "image": "https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=1000&q=85",
+        "alt": "Siswa membaca di perpustakaan"
+      },
+      {
+        "title": "Belajar Bersama",
+        "category": "Pembelajaran",
+        "image": "https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?auto=format&fit=crop&w=1000&q=85",
+        "alt": "Siswa belajar dan berdiskusi bersama"
+      }
+    ]
+  }
+}

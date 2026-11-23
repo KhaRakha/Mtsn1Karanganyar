@@ -1,0 +1,46 @@
+{% extends "admin/base.html" %}
+
+{% block title %}{{ page_title }} | Direktori Guru{% endblock %}
+
+{% block content %}
+  <div class="page-heading">
+    <div>
+      <span class="page-kicker">DIREKTORI GURU</span>
+      <h1>{{ page_title }}</h1>
+      <p>Data yang disimpan akan langsung digunakan pada kartu direktori di website.</p>
+    </div>
+    <a class="button-secondary" href="{{ url_for('guru_list') }}"><svg class="admin-icon" aria-hidden="true"><use href="#icon-arrow-left"></use></svg> Kembali</a>
+  </div>
+  <section class="panel form-panel">
+    {% if errors %}
+      <div class="form-error" role="alert">
+        {% for error in errors %}<p>{{ error }}</p>{% endfor %}
+      </div>
+    {% endif %}
+    <form class="content-form" method="post" enctype="multipart/form-data">
+      <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+      <label for="name">Nama guru <span>*</span></label>
+      <input id="name" name="name" type="text" maxlength="180" value="{{ values.name }}" required>
+
+      <label for="role">Jabatan / mata pelajaran <span>*</span></label>
+      <input id="role" name="role" type="text" maxlength="180" value="{{ values.role }}" required>
+
+      <label for="image">Foto guru{% if not values.image_url %} <span>*</span>{% endif %}</label>
+      {% if values.image_url %}
+        <img class="guru-form-preview" src="{{ values.image_url }}" alt="Foto {{ values.name }}">
+        <small class="field-help">Foto saat ini. Pilih file baru jika ingin menggantinya.</small>
+      {% endif %}
+      <input id="image" name="image" type="file" accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp" {% if not values.image_url %}required{% endif %}>
+      <small class="field-help">Pilih JPG, PNG, atau WebP. Ukuran maksimal 5 MB.</small>
+
+      <label for="sort_order">Urutan tampil <span>*</span></label>
+      <input id="sort_order" name="sort_order" type="number" min="1" step="1" value="{{ values.sort_order }}" required>
+      <small class="field-help">Posisi dimulai dari 1. Jika posisi sudah digunakan, guru lain akan bergeser otomatis.</small>
+
+      <div class="form-actions">
+        <button class="button-primary" type="submit">Simpan Data Guru</button>
+        <a class="button-secondary" href="{{ url_for('guru_list') }}">Batal</a>
+      </div>
+    </form>
+  </section>
+{% endblock %}

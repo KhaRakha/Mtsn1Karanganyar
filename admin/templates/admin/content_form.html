@@ -1,0 +1,110 @@
+{% extends "admin/base.html" %}
+
+{% block title %}{{ page_title }} | Admin MTsN 1 Karanganyar{% endblock %}
+
+{% block content %}
+  <div class="page-heading">
+    <div>
+      <span class="page-kicker">{{ label|upper }}</span>
+      <h1>{{ page_title }}</h1>
+      <p>Isi informasi di bawah ini, lalu simpan sebagai draf atau terbitkan.</p>
+    </div>
+    <a class="button-secondary" href="{{ url_for('content_list', content_type=content_type) }}"><svg class="admin-icon" aria-hidden="true"><use href="#icon-arrow-left"></use></svg> Kembali</a>
+  </div>
+
+  <section class="panel form-panel">
+    {% if errors %}
+      <div class="form-error" role="alert">
+        {% for error in errors %}<p>{{ error }}</p>{% endfor %}
+      </div>
+    {% endif %}
+    <form class="content-form" method="post">
+      <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+      <label for="title">Judul <span>*</span></label>
+      <input id="title" name="title" type="text" maxlength="180" value="{{ values.title }}" required>
+
+      <label for="summary">Ringkasan</label>
+      <textarea id="summary" name="summary" rows="3" maxlength="500">{{ values.summary }}</textarea>
+      <small class="field-help">Maksimal 500 karakter.</small>
+
+      {% if content_type == 'prestasi' %}
+        <label for="achievement_level">Tingkat prestasi</label>
+        <select id="achievement_level" name="achievement_level">
+          {% for level in achievement_levels %}
+            <option value="{{ level }}" {% if values.achievement_level == level %}selected{% endif %}>{{ level }}</option>
+          {% endfor %}
+        </select>
+        <small class="field-help">Pilih tingkat kompetisi agar ditampilkan pada kartu prestasi.</small>
+
+        <label for="achievement_category">Bidang prestasi</label>
+        <select id="achievement_category" name="achievement_category">
+          {% for category in achievement_categories %}
+            <option value="{{ category }}" {% if values.achievement_category == category %}selected{% endif %}>{{ category }}</option>
+          {% endfor %}
+        </select>
+        <small class="field-help">Bidang ini ditampilkan pada foto kartu prestasi.</small>
+
+        <label for="student_names">Nama siswa/peraih prestasi</label>
+        <textarea id="student_names" name="student_names" rows="3" maxlength="1000" placeholder="Satu nama per baris">{{ values.student_names }}</textarea>
+        <small class="field-help">Isi satu atau beberapa nama. Untuk lebih dari satu siswa, tulis setiap nama pada baris baru.</small>
+      {% endif %}
+
+      <label for="image_url">Gambar konten</label>
+      <input id="image_url" name="image_url" type="text" maxlength="500" value="{{ values.image_url }}" placeholder="https://... atau /static/uploads/content/...">
+      <label for="image_upload">Unggah gambar</label>
+      <input id="image_upload" type="file" accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp" data-image-upload>
+      {% if content_type in ['prestasi', 'berita', 'artikel'] %}
+        <input type="hidden" id="image_position" name="image_position" value="{{ values.image_position or '50% 50%' }}" data-image-position>
+        <label>Atur potongan foto di website</label>
+        <div class="achievement-crop-frame" data-crop-frame {% if not values.image_url %}hidden{% endif %}>
+          <img class="achievement-crop-preview" data-image-preview src="{{ values.image_url }}" alt="Pratinjau potongan foto {{ label|lower }}" {% if not values.image_url %}hidden{% endif %}>
+        </div>
+        <small class="field-help">
+          {% if content_type == 'prestasi' %}
+            Pratinjau mengikuti bingkai lanskap di halaman Prestasi. Atur bagian foto yang ingin ditampilkan.
+          {% elif content_type == 'artikel' %}
+            Pratinjau mengikuti bingkai artikel di halaman Artikel. Atur bagian foto yang ingin ditampilkan.
+          {% else %}
+            Pratinjau mengikuti bingkai lanskap di halaman Berita. Atur bagian foto yang ingin ditampilkan.
+          {% endif %}
+        </small>
+        <div class="achievement-crop-controls">
+          <label for="image_position_x">Posisi horizontal</label>
+          <input id="image_position_x" type="range" min="0" max="100" step="1" value="50" data-image-position-x>
+          <label for="image_position_y">Posisi vertikal</label>
+          <input id="image_position_y" type="range" min="0" max="100" step="1" value="50" data-image-position-y>
+        </div>
+      {% else %}
+        <img class="content-image-preview" data-image-preview src="{{ values.image_url }}" alt="Pratinjau gambar konten" {% if not values.image_url %}hidden{% endif %}>
+      {% endif %}
+      <small class="field-help" data-image-upload-status>Tempel alamat gambar atau unggah JPG, PNG, atau WebP (maks. 5 MB).</small>
+
+      {% if content_type == 'berita' %}
+        <label for="placement">Tampilkan sebagai</label>
+        <select id="placement" name="placement">
+          <option value="utama" {% if values.placement == 'utama' %}selected{% endif %}>Berita Utama</option>
+          <option value="sorotan" {% if values.placement == 'sorotan' %}selected{% endif %}>Sorotan di bawah berita utama</option>
+        </select>
+        <small class="field-help">Hanya satu berita terbit yang menjadi berita utama. Memilih berita utama baru akan memindahkan pilihan sebelumnya ke sorotan.</small>
+      {% endif %}
+
+      <label for="body">Isi konten <span>*</span></label>
+      <textarea id="body" name="body" rows="9" required>{{ values.body }}</textarea>
+
+      <label for="published_at">Tanggal publikasi <span>*</span></label>
+      <input id="published_at" name="published_at" type="date" value="{{ values.published_at }}" required>
+
+      <div class="publication-status-toolbar">
+        <label for="status">Status
+          <select id="status" name="status">
+            <option value="draft" {% if values.status == 'draft' %}selected{% endif %}>Draf</option>
+            <option value="published" {% if values.status == 'published' %}selected{% endif %}>Terbit</option>
+          </select>
+        </label>
+        <button class="button-primary" type="submit">Simpan konten</button>
+        <small class="field-help">Status dan perubahan konten akan disimpan bersama.</small>
+      </div>
+    </form>
+  </section>
+  <script src="{{ url_for('static', filename='image-upload.js') }}" defer></script>
+{% endblock %}

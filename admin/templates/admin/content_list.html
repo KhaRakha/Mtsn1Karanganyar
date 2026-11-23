@@ -1,0 +1,48 @@
+{% extends "admin/base.html" %}
+
+{% block title %}{{ label }} | Admin MTsN 1 Karanganyar{% endblock %}
+
+{% block content %}
+  <div class="page-heading">
+    <div>
+      <span class="page-kicker">MANAJEMEN KONTEN</span>
+      <h1>{{ label }}</h1>
+      <p>Tambah, perbarui, atau hapus {{ label|lower }}.</p>
+    </div>
+    <a class="button-primary" href="{{ url_for('content_new', content_type=content_type) }}"><svg class="admin-icon" aria-hidden="true"><use href="#icon-plus"></use></svg> Tambah {{ label }}</a>
+  </div>
+
+  <section class="panel content-list-panel">
+    {% if items %}
+      <div class="table-wrap">
+        <table class="content-list-table {{ content_type }}">
+          <thead><tr><th>Judul</th>{% if content_type == 'berita' %}<th>Penempatan</th>{% endif %}<th>Tanggal publikasi</th><th>Status</th><th class="actions-heading">Aksi</th></tr></thead>
+          <tbody>
+            {% for item in items %}
+              <tr>
+                <td class="table-title" data-label="Judul">
+                  {{ item.title }}
+                  {% if item.summary %}<small>{{ item.summary }}</small>{% endif %}
+                </td>
+                {% if content_type == 'berita' %}
+                  <td data-label="Penempatan">{{ 'Berita Utama' if item.placement == 'utama' else 'Sorotan' }}</td>
+                {% endif %}
+                <td data-label="Tanggal publikasi">{{ item.published_at }}</td>
+                <td data-label="Status"><span class="status-badge {{ item.status }}">{{ 'Terbit' if item.status == 'published' else 'Draf' }}</span></td>
+                <td class="row-actions" data-label="Aksi">
+                  <a class="table-action" href="{{ url_for('content_edit', item_id=item.id) }}">Edit</a>
+                  <form method="post" action="{{ url_for('content_delete', item_id=item.id) }}">
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                    <button class="table-action danger" type="button" data-admin-confirm-delete data-confirm-kind="konten" data-confirm-title="{{ item.title }}">Hapus</button>
+                  </form>
+                </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    {% else %}
+      <div class="empty-state"><span aria-hidden="true"><svg class="admin-icon"><use href="#icon-empty"></use></svg></span><strong>Belum ada {{ label|lower }}</strong><p>Konten yang Anda tambahkan akan muncul di daftar ini.</p></div>
+    {% endif %}
+  </section>
+{% endblock %}

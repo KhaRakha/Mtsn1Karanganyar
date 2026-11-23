@@ -1,0 +1,391 @@
+.testimoni-alumni-content {
+  width: min(calc(100% - var(--page-gutter) * 2), var(--content-width));
+  margin: 0 auto;
+  padding: 0 0 60px;
+}
+
+.testimoni-alumni-actions {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.testimoni-alumni-share,
+.testimoni-alumni-submit {
+  min-height: 54px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 0;
+  border-radius: 10px;
+  padding: 0 28px;
+  background: linear-gradient(135deg, #087d65, #0b9a78);
+  color: #fff;
+  font: inherit;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 8px 18px rgb(7 105 82 / 18%);
+  transition: background 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+}
+
+.testimoni-alumni-share:hover,
+.testimoni-alumni-submit:hover:not(:disabled) {
+  transform: translateY(-1px);
+  background: linear-gradient(135deg, #066c58, #087f68);
+  box-shadow: 0 11px 22px rgb(7 105 82 / 24%);
+}
+
+.testimoni-alumni-share > span {
+  font-size: 23px;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.testimoni-alumni-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 36px;
+}
+
+.testimoni-alumni-card {
+  position: relative;
+  min-width: 0;
+  margin: 0;
+  overflow: hidden;
+  padding: 30px;
+  border: 1px solid #e1eee7;
+  border-radius: 18px;
+  background: linear-gradient(155deg, #fff 0%, #fff 58%, #f6fbf7 100%);
+  box-shadow: 0 10px 26px rgb(7 61 51 / 7%), 0 2px 6px rgb(7 61 51 / 3%);
+  transition: transform 200ms ease, border-color 200ms ease, box-shadow 200ms ease;
+}
+
+.testimoni-alumni-card:hover {
+  transform: translateY(-4px);
+  border-color: #b9daca;
+  box-shadow: 0 18px 34px rgb(7 61 51 / 11%), 0 4px 10px rgb(7 61 51 / 4%);
+}
+
+.testimoni-alumni-identity {
+  display: grid;
+  grid-template-columns: 80px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 16px;
+  min-height: 80px;
+}
+
+.testimoni-alumni-avatar {
+  width: 80px;
+  height: 80px;
+  border: 3px solid #fff;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #dff4e8, #ccebdc);
+  object-fit: cover;
+  box-shadow: 0 0 0 1px #b8ddca, 0 5px 12px rgb(7 61 51 / 10%);
+}
+
+.testimoni-alumni-initials {
+  display: grid;
+  place-items: center;
+  color: #08745d;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.testimoni-alumni-person {
+  display: grid;
+  gap: 3px;
+  min-width: 0;
+}
+
+.testimoni-alumni-person strong {
+  color: #173c32;
+  font-size: 19px;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+}
+
+.testimoni-alumni-person > span,
+.testimoni-alumni-year {
+  color: #64776e;
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.testimoni-alumni-year {
+  align-self: center;
+  white-space: nowrap;
+  padding: 6px 11px;
+  border: 1px solid #d5eadc;
+  border-radius: 999px;
+  background: #edf7f0;
+  color: #08745d;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.testimoni-alumni-card blockquote {
+  position: relative;
+  margin: 24px 0 0;
+  padding: 21px 0 0;
+  border-top: 1px solid #dcebe2;
+  color: #42584e;
+  font-size: 16px;
+  line-height: 1.75;
+  overflow-wrap: anywhere;
+}
+
+.testimoni-alumni-card blockquote::before {
+  display: block;
+  margin-bottom: 4px;
+  color: #0a9874;
+  content: "\201C";
+  font-family: Georgia, serif;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: .8;
+}
+
+body.testimoni-form-open {
+  overflow: hidden;
+}
+
+.testimoni-alumni-modal {
+  position: fixed;
+  z-index: 1000;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  overflow-y: auto;
+  padding: 24px;
+  background: rgb(5 10 20 / 72%);
+  backdrop-filter: blur(6px);
+}
+
+.testimoni-alumni-form-panel {
+  position: relative;
+  width: min(680px, 100%);
+  max-height: calc(100vh - 48px);
+  overflow-y: auto;
+  padding: 36px;
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 24px 80px rgb(0 0 0 / 28%);
+}
+
+.testimoni-alumni-form-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 40px;
+  height: 40px;
+  border: 0;
+  border-radius: 50%;
+  background: #f0f4f2;
+  color: #2a3932;
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.testimoni-alumni-form-close:disabled {
+  cursor: not-allowed;
+  opacity: .6;
+}
+
+.testimoni-alumni-form-kicker {
+  color: #087f66;
+  font-size: 12px;
+  font-weight: 750;
+  letter-spacing: .1em;
+}
+
+.testimoni-alumni-form-panel h2 {
+  margin: 10px 48px 0 0;
+  color: #183c33;
+  font-size: clamp(24px, 4vw, 32px);
+  line-height: 1.2;
+}
+
+.testimoni-alumni-form-intro {
+  margin: 10px 0 22px;
+  color: #68756f;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.testimoni-alumni-form {
+  display: grid;
+  gap: 16px;
+}
+
+.testimoni-alumni-form-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.testimoni-alumni-form label {
+  display: grid;
+  gap: 7px;
+  color: #2f4038;
+  font-size: 13px;
+  font-weight: 650;
+}
+
+.testimoni-alumni-form input:not([type="checkbox"]):not([type="file"]),
+.testimoni-alumni-form textarea,
+.testimoni-alumni-form input[type="file"] {
+  width: 100%;
+  min-height: 44px;
+  border: 1px solid #d8e2dd;
+  border-radius: 8px;
+  padding: 10px 12px;
+  background: #fff;
+  color: #273630;
+  font: inherit;
+  font-size: 14px;
+}
+
+.testimoni-alumni-form input[type="file"] {
+  padding: 8px;
+}
+
+.testimoni-alumni-form textarea {
+  min-height: 130px;
+  resize: vertical;
+}
+
+.testimoni-alumni-quote-guidance {
+  color: #68756f;
+  font-size: 12px;
+  font-weight: 450;
+}
+
+.testimoni-alumni-consent {
+  grid-template-columns: 18px minmax(0, 1fr);
+  align-items: start;
+  gap: 10px !important;
+  color: #65726c !important;
+  font-size: 12px !important;
+  font-weight: 450 !important;
+  line-height: 1.55;
+}
+
+.testimoni-alumni-consent input {
+  margin: 2px 0 0;
+  accent-color: #078b7d;
+}
+
+.testimoni-alumni-submit {
+  width: 100%;
+  min-height: 48px;
+  font-size: 14px;
+}
+
+.testimoni-alumni-submit:disabled {
+  cursor: not-allowed;
+  opacity: .6;
+}
+
+.testimoni-alumni-form-message {
+  margin: 0 0 16px;
+  padding: 12px 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.testimoni-alumni-form-message.error {
+  background: #fff0ef;
+  color: #a13833;
+}
+
+.testimoni-alumni-form-message.success {
+  background: #eaf7ef;
+  color: #17684f;
+}
+
+.testimoni-alumni-honeypot {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+@media (max-width: 1000px) {
+  .testimoni-alumni-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+  }
+
+  .testimoni-alumni-card {
+    padding: 24px;
+  }
+
+  .testimoni-alumni-identity {
+    grid-template-columns: 68px minmax(0, 1fr) auto;
+    gap: 14px;
+  }
+
+  .testimoni-alumni-avatar {
+    width: 68px;
+    height: 68px;
+  }
+}
+
+@media (max-width: 700px) {
+  .testimoni-alumni-content {
+    padding-bottom: 40px;
+  }
+
+  .testimoni-alumni-actions {
+    margin-bottom: 22px;
+  }
+
+  .testimoni-alumni-share {
+    width: 100%;
+    min-height: 50px;
+  }
+
+  .testimoni-alumni-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .testimoni-alumni-card {
+    padding: 22px;
+  }
+
+  .testimoni-alumni-card blockquote {
+    margin-top: 20px;
+    padding-top: 16px;
+    font-size: 16px;
+    line-height: 1.75;
+  }
+
+  .testimoni-alumni-form-panel {
+    padding: 28px 20px 22px;
+  }
+
+  .testimoni-alumni-form-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .testimoni-alumni-card,
+  .testimoni-alumni-share,
+  .testimoni-alumni-submit {
+    transition: none;
+  }
+
+  .testimoni-alumni-card:hover {
+    transform: none;
+  }
+}

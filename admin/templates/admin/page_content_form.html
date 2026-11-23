@@ -1,0 +1,48 @@
+{% extends "admin/base.html" %}
+
+{% block title %}Kelola {{ page_label }} | Admin MTsN 1 Karanganyar{% endblock %}
+
+{% block content %}
+  <div class="page-heading">
+    <div>
+      <h1>Kelola {{ page_label }}</h1>
+      <p>Perbarui judul, label, deskripsi, dan status publikasi halaman.</p>
+    </div>
+  </div>
+  {% if page_slug == 'sejarah' %}
+    <nav class="page-content-navigation" aria-label="Navigasi halaman">
+      <a class="button-primary" href="{{ url_for('history_content_edit') }}">Kelola isi sejarah <svg class="admin-icon" aria-hidden="true"><use href="#icon-arrow-right"></use></svg></a>
+    </nav>
+  {% endif %}
+
+  <section class="panel form-panel page-metadata-panel">
+    {% if errors %}
+      <div class="form-errors" role="alert">
+        {% for error in errors %}<p>{{ error }}</p>{% endfor %}
+      </div>
+    {% endif %}
+    <form method="post" class="content-form">
+      <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+      <label for="title">Judul halaman
+        <textarea id="title" class="page-title-input" name="title" rows="2" maxlength="180" required>{{ values.title }}</textarea>
+        <small class="field-help">Gunakan Enter untuk membuat baris baru pada judul.</small>
+      </label>
+      <label for="badge">Label kecil / badge
+        <input id="badge" name="badge" maxlength="100" value="{{ values.badge }}">
+      </label>
+      <label for="description">Deskripsi singkat
+        <textarea id="description" name="description" rows="4" maxlength="2000">{{ values.description }}</textarea>
+      </label>
+      <div class="publication-status-toolbar">
+        <label for="page-status">Status halaman
+          <select id="page-status" name="status">
+            <option value="draft" {% if values.status == 'draft' %}selected{% endif %}>Draf</option>
+            <option value="published" {% if values.status == 'published' %}selected{% endif %}>Terbit</option>
+          </select>
+        </label>
+        <button class="button-primary" type="submit">Simpan status</button>
+        <small class="field-help">Status dan perubahan informasi halaman di atas akan disimpan bersama.</small>
+      </div>
+    </form>
+  </section>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends "admin/base.html" %}
+
+{% block title %}Halaman Website | Admin MTsN 1 Karanganyar{% endblock %}
+
+{% block content %}
+  <div class="page-heading">
+    <div>
+      <span class="page-kicker">KONTEN WEBSITE</span>
+      <h1>Semua Halaman Website</h1>
+      <p>Kelola judul halaman, label kecil / badge, dan deskripsi singkat untuk setiap halaman.</p>
+    </div>
+  </div>
+  <section class="panel">
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Nama halaman</th><th>Alamat</th><th>Status</th><th>Terakhir diperbarui</th><th class="actions-heading">Aksi</th></tr></thead>
+        <tbody>
+          {% for page in pages %}
+            <tr>
+              <td class="table-title" data-label="Nama halaman">{{ page_types[page.page_slug] }}</td>
+              <td data-label="Alamat">/{{ page.page_slug }}</td>
+              <td data-label="Status"><span class="status-badge {{ page.status }}">{{ 'Terbit' if page.status == 'published' else 'Draf' }}</span></td>
+              <td data-label="Terakhir diperbarui">{{ page.updated_at }}</td>
+              <td class="row-actions" data-label="Aksi">
+                <a class="table-action" href="{{ url_for('page_content_edit', page_slug=page.page_slug) }}">Kelola halaman</a>
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </section>
+{% endblock %}

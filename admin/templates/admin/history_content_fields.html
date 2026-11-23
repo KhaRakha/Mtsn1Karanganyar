@@ -1,0 +1,225 @@
+<details id="history-intro" class="history-editor-section" name="history-editor-sections" data-history-section>
+  <summary>Pengantar Sejarah</summary>
+  <div class="history-form-grid">
+    <label for="story_title">Judul kisah
+      <textarea id="story_title" class="history-title-input" name="story_title" rows="2" maxlength="180" required>{{ history_values.story.title }}</textarea>
+      <small class="field-help">Gunakan Enter untuk membuat baris baru pada judul.</small>
+    </label>
+    <label for="story_description">Deskripsi kisah
+      <textarea id="story_description" name="story_description" maxlength="2000" rows="4" required>{{ history_values.story.description }}</textarea>
+    </label>
+  </div>
+  <div class="home-section-actions">
+    <button class="button-primary" type="submit" name="save_section" value="history-intro">Simpan perubahan</button>
+  </div>
+</details>
+
+<details id="history-statistics" class="history-editor-section" name="history-editor-sections" data-history-section>
+  <summary>Statistik Sejarah</summary>
+  <div class="history-form-grid history-form-grid-three">
+    <label for="founded_label">Label tahun berdiri
+      <input id="founded_label" name="founded_label" maxlength="100" required value="{{ history_values.story.foundedLabel or 'DIDIRIKAN' }}">
+    </label>
+    <label for="founded">Tahun berdiri
+      <input id="founded" name="founded" maxlength="100" required value="{{ history_values.story.founded }}">
+    </label>
+    <label for="tenure_label">Label masa pengabdian
+      <input id="tenure_label" name="tenure_label" maxlength="100" required value="{{ history_values.story.tenureLabel or 'MASA PENGABDIAN' }}">
+    </label>
+    <label for="tenure">Masa pengabdian
+      <input id="tenure" name="tenure" maxlength="100" required value="{{ history_values.story.tenure }}">
+    </label>
+    <label for="accreditation_label">Label status mutu
+      <input id="accreditation_label" name="accreditation_label" maxlength="100" required value="{{ history_values.story.accreditationLabel or 'STATUS MUTU' }}">
+    </label>
+    <label for="accreditation">Status mutu
+      <input id="accreditation" name="accreditation" maxlength="180" required value="{{ history_values.story.accreditation }}">
+    </label>
+  </div>
+  <div class="home-section-actions">
+    <button class="button-primary" type="submit" name="save_section" value="history-statistics">Simpan perubahan</button>
+  </div>
+</details>
+
+<details id="history-milestones" class="history-editor-section" name="history-editor-sections" data-history-section>
+  <summary>Linimasa Tonggak Sejarah</summary>
+  <label for="history_milestones_title">Judul bagian linimasa
+    <input id="history_milestones_title" name="history_milestones_title" maxlength="180" required value="{{ history_values.story.milestonesTitle }}">
+  </label>
+  <div class="history-repeat-list" data-history-repeater="milestones" data-minimum="1">
+    {% for milestone in history_values.milestones %}
+      <article class="history-repeat-card" data-history-item>
+        <div class="history-repeat-heading">
+          <strong>Tonggak {{ loop.index }}</strong>
+          <button class="history-remove-button" type="button" data-remove-history-item>Hapus</button>
+        </div>
+        <div class="history-form-grid history-form-grid-two">
+          <label>Tahun / badge
+            <input name="milestones_year" maxlength="40" required value="{{ milestone.year }}">
+          </label>
+          <label>Judul tonggak
+            <input name="milestones_title" maxlength="180" required value="{{ milestone.title }}">
+          </label>
+          <label>Uraian tonggak
+            <textarea name="milestones_text" maxlength="2000" rows="3" required>{{ milestone.text }}</textarea>
+          </label>
+          <label>Judul catatan
+            <input name="milestones_noteTitle" maxlength="180" required value="{{ milestone.noteTitle }}">
+          </label>
+          <label>Isi catatan
+            <textarea name="milestones_note" maxlength="2000" rows="3" required>{{ milestone.note }}</textarea>
+          </label>
+        </div>
+      </article>
+    {% endfor %}
+  </div>
+  <button class="button-secondary history-add-button" type="button" data-add-history-item="milestones">Tambah tonggak</button>
+  <template data-history-template="milestones">
+    <article class="history-repeat-card" data-history-item>
+      <div class="history-repeat-heading">
+        <strong>Tonggak baru</strong>
+        <button class="history-remove-button" type="button" data-remove-history-item>Hapus</button>
+      </div>
+      <div class="history-form-grid history-form-grid-two">
+        <label>Tahun / badge
+          <input name="milestones_year" maxlength="40" required>
+        </label>
+        <label>Judul tonggak
+          <input name="milestones_title" maxlength="180" required>
+        </label>
+        <label>Uraian tonggak
+          <textarea name="milestones_text" maxlength="2000" rows="3" required></textarea>
+        </label>
+        <label>Judul catatan
+          <input name="milestones_noteTitle" maxlength="180" required>
+        </label>
+        <label>Isi catatan
+          <textarea name="milestones_note" maxlength="2000" rows="3" required></textarea>
+        </label>
+      </div>
+    </article>
+  </template>
+  <div class="home-section-actions">
+    <button class="button-primary" type="submit" name="save_section" value="history-milestones">Simpan perubahan</button>
+  </div>
+</details>
+
+<details id="history-emblem" class="history-editor-section" name="history-editor-sections" data-history-section>
+  <summary>Lambang dan Maknanya</summary>
+  <label for="emblem_title">Judul bagian lambang
+    <input id="emblem_title" name="emblem_title" maxlength="180" required value="{{ history_values.story.emblemTitle }}">
+  </label>
+  <label for="emblem_logo_title">Nama lambang
+    <input id="emblem_logo_title" name="emblem_logo_title" maxlength="180" required value="{{ history_values.story.emblemLogoTitle }}">
+  </label>
+  <input type="hidden" id="emblem_logo_url" name="emblem_logo_url" value="{{ history_values.logo }}">
+  {% if history_values.logo %}
+    <img class="history-image-preview" src="{{ history_values.logo }}" alt="Pratinjau lambang madrasah">
+  {% endif %}
+  <label for="emblem_logo_file">Unggah gambar lambang
+    <input id="emblem_logo_file" name="emblem_logo_file" type="file" accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp">
+  </label>
+  <small class="field-help">Unggah gambar JPG, PNG, atau WebP (maksimal 5 MB). Jika tidak ada file baru, lambang saat ini tetap digunakan.</small>
+
+  <div class="history-repeat-list" data-history-repeater="emblem_points" data-minimum="0">
+    {% for point in history_values.emblem_points %}
+      <article class="history-repeat-card" data-history-item>
+        <div class="history-repeat-heading">
+          <strong>Makna lambang {{ loop.index }}</strong>
+          <button class="history-remove-button" type="button" data-remove-history-item>Hapus</button>
+        </div>
+        <div class="history-form-grid history-form-grid-three">
+          <label>Ikon
+            <input name="emblem_points_icon" maxlength="30" value="{{ point.icon }}">
+          </label>
+          <label>Judul
+            <input name="emblem_points_title" maxlength="180" required value="{{ point.title }}">
+          </label>
+          <label>Uraian
+            <textarea name="emblem_points_text" maxlength="1000" rows="3" required>{{ point.text }}</textarea>
+          </label>
+        </div>
+      </article>
+    {% endfor %}
+  </div>
+  <button class="button-secondary history-add-button" type="button" data-add-history-item="emblem_points">Tambah makna lambang</button>
+  <template data-history-template="emblem_points">
+    <article class="history-repeat-card" data-history-item>
+      <div class="history-repeat-heading">
+        <strong>Makna lambang baru</strong>
+        <button class="history-remove-button" type="button" data-remove-history-item>Hapus</button>
+      </div>
+      <div class="history-form-grid history-form-grid-three">
+        <label>Ikon
+          <input name="emblem_points_icon" maxlength="30">
+        </label>
+        <label>Judul
+          <input name="emblem_points_title" maxlength="180" required>
+        </label>
+        <label>Uraian
+          <textarea name="emblem_points_text" maxlength="1000" rows="3" required></textarea>
+        </label>
+      </div>
+    </article>
+  </template>
+  <div class="home-section-actions">
+    <button class="button-primary" type="submit" name="save_section" value="history-emblem">Simpan perubahan</button>
+  </div>
+</details>
+
+<details id="history-leaders" class="history-editor-section" name="history-editor-sections" data-history-section>
+  <summary>Kepala Madrasah dari Masa ke Masa</summary>
+  <label for="leaders_title">Judul bagian kepala madrasah
+    <input id="leaders_title" name="leaders_title" maxlength="180" required value="{{ history_values.story.leadersTitle }}">
+  </label>
+  <div class="history-repeat-list" data-history-repeater="leaders" data-minimum="1">
+    {% for leader in history_values.leaders %}
+      <article class="history-repeat-card" data-history-item>
+        <div class="history-repeat-heading">
+          <strong>Kepala madrasah {{ loop.index }}</strong>
+          <button class="history-remove-button" type="button" data-remove-history-item>Hapus</button>
+        </div>
+        <div class="history-form-grid history-form-grid-two">
+          <label>Periode
+            <input name="leaders_period" maxlength="100" required value="{{ leader.period }}">
+          </label>
+          <label>Nama kepala madrasah
+            <input name="leaders_name" maxlength="180" required value="{{ leader.name }}">
+          </label>
+          <input type="hidden" name="leaders_image" value="{{ leader.image }}">
+          <label>Unggah foto
+            <input name="leader_image_file_{{ loop.index0 }}" type="file" accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp" data-history-image-input>
+          </label>
+          {% if leader.image %}
+            <img class="history-image-preview" src="{{ leader.image }}" alt="Foto {{ leader.name }}">
+          {% endif %}
+        </div>
+      </article>
+    {% endfor %}
+  </div>
+  <button class="button-secondary history-add-button" type="button" data-add-history-item="leaders">Tambah kepala madrasah</button>
+  <template data-history-template="leaders">
+    <article class="history-repeat-card" data-history-item>
+      <div class="history-repeat-heading">
+        <strong>Kepala madrasah baru</strong>
+        <button class="history-remove-button" type="button" data-remove-history-item>Hapus</button>
+      </div>
+      <div class="history-form-grid history-form-grid-two">
+        <label>Periode
+          <input name="leaders_period" maxlength="100" required>
+        </label>
+        <label>Nama kepala madrasah
+          <input name="leaders_name" maxlength="180" required>
+        </label>
+        <input type="hidden" name="leaders_image" value="">
+        <label>Unggah foto
+          <input name="leader_image_file__index__" type="file" accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp" data-history-image-input>
+        </label>
+      </div>
+    </article>
+  </template>
+  <small class="field-help">Unggah foto JPG, PNG, atau WebP (maksimal 5 MB). Jika tidak ada file baru, foto saat ini tetap digunakan.</small>
+  <div class="home-section-actions">
+    <button class="button-primary" type="submit" name="save_section" value="history-leaders">Simpan perubahan</button>
+  </div>
+</details>

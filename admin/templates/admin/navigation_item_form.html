@@ -1,0 +1,48 @@
+{% extends "admin/base.html" %}
+
+{% block title %}{{ page_title }} | Navigasi Website{% endblock %}
+
+{% block content %}
+  <div class="page-heading">
+    <div>
+      <span class="page-kicker">NAVIGASI WEBSITE</span>
+      <h1>{{ page_title }}</h1>
+      <p>Atur nama, alamat, kategori, dan urutan submenu.</p>
+    </div>
+    <a class="button-secondary" href="{{ url_for('navigation_list') }}"><svg class="admin-icon" aria-hidden="true"><use href="#icon-arrow-left"></use></svg> Kembali</a>
+  </div>
+
+  <section class="panel form-panel">
+    {% if errors %}
+      <div class="form-error" role="alert">
+        {% for error in errors %}<p>{{ error }}</p>{% endfor %}
+      </div>
+    {% endif %}
+    <form class="content-form" method="post">
+      <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+
+      <label for="group_id">Kategori <span>*</span></label>
+      <select id="group_id" name="group_id" required>
+        {% for group in groups %}
+          <option value="{{ group.id }}" {% if values.group_id == group.id %}selected{% endif %}>{{ navigation_menus[group.menu_key] }} · {{ group.title }}</option>
+        {% endfor %}
+      </select>
+
+      <label for="label">Nama submenu <span>*</span></label>
+      <input id="label" name="label" type="text" maxlength="100" value="{{ values.label }}" required>
+
+      <label for="href">Alamat halaman <span>*</span></label>
+      <input id="href" name="href" type="text" maxlength="300" value="{{ values.href }}" placeholder="/visi-misi" required>
+      <small class="field-help">Gunakan path lokal seperti /visi-misi atau URL lengkap http/https.</small>
+
+      <label for="sort_order">Urutan tampil</label>
+      <input id="sort_order" name="sort_order" type="number" min="0" step="1" value="{{ values.sort_order }}" required>
+      <small class="field-help">Urutan berlaku di dalam kategori yang dipilih. Angka lebih kecil ditampilkan lebih dahulu.</small>
+
+      <div class="form-actions">
+        <button class="button-primary" type="submit">Simpan Submenu</button>
+        <a class="button-secondary" href="{{ url_for('navigation_list') }}">Batal</a>
+      </div>
+    </form>
+  </section>
+{% endblock %}

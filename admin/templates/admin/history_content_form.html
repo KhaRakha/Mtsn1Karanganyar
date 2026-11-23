@@ -1,0 +1,38 @@
+{% extends "admin/base.html" %}
+
+{% block title %}Kelola Isi Sejarah | Admin MTsN 1 Karanganyar{% endblock %}
+
+{% block content %}
+  <div class="page-heading">
+    <div>
+      <span class="page-kicker">KONTEN SEJARAH</span>
+      <h1>Kelola Isi Sejarah</h1>
+      <p>Kelola pengantar, statistik, linimasa, lambang, dan daftar kepala madrasah.</p>
+    </div>
+    <a class="button-secondary" href="{{ url_for('page_content_edit', page_slug='sejarah') }}">Kelola metadata halaman</a>
+  </div>
+
+  <section class="panel form-panel history-content-panel">
+    {% if errors %}
+      <div class="form-errors" role="alert">
+        {% for error in errors %}<p>{{ error }}</p>{% endfor %}
+      </div>
+    {% endif %}
+    <form method="post" class="content-form" enctype="multipart/form-data" data-history-editor data-open-section="{{ request.form.get('save_section', '') }}">
+      <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+      <p class="field-help">Buka bagian yang ingin diubah. Tombol simpan tersedia di dalam setiap bagian.</p>
+      <div id="history-publication" class="publication-status-toolbar">
+        <label for="history-page-status">Status halaman
+          <select id="history-page-status" name="status">
+            <option value="draft" {% if status == 'draft' %}selected{% endif %}>Draf</option>
+            <option value="published" {% if status == 'published' %}selected{% endif %}>Terbit</option>
+          </select>
+        </label>
+        <button class="button-primary" type="submit" name="save_section" value="history-publication">Simpan status</button>
+        <small class="field-help">Status ini juga ikut disimpan saat menyimpan bagian isi lainnya.</small>
+      </div>
+      {% include "admin/history_content_fields.html" %}
+    </form>
+  </section>
+  <script src="{{ url_for('static', filename='history-editor.js', v='2') }}" defer></script>
+{% endblock %}

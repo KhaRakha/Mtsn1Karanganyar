@@ -1,0 +1,275 @@
+.vision-page .site-header,
+.vision-page .site-header.is-scrolled,
+.history-page .site-header,
+.history-page .site-header.is-scrolled {
+  padding-right: var(--section-inset);
+  padding-left: var(--section-inset);
+}
+
+.vision-page .site-header:not(.is-scrolled):not(.menu-open) .brand-copy strong,
+.history-page .site-header:not(.is-scrolled):not(.menu-open) .brand-copy strong {
+  text-shadow: 0 2px 8px rgb(0 0 0 / 72%);
+}
+
+.vision-page .site-header:not(.is-scrolled):not(.menu-open) .brand-copy small,
+.history-page .site-header:not(.is-scrolled):not(.menu-open) .brand-copy small {
+  color: #fff;
+  text-shadow: 0 2px 7px rgb(0 0 0 / 78%);
+}
+
+.vision-page .site-header:not(.is-scrolled):not(.menu-open) .brand-logo,
+.history-page .site-header:not(.is-scrolled):not(.menu-open) .brand-logo {
+  filter: drop-shadow(0 2px 5px rgb(0 0 0 / 38%));
+}
+
+.vision-page .site-header:not(.is-scrolled):not(.menu-open) .nav-link,
+.vision-page .site-header:not(.is-scrolled):not(.menu-open) .nav-trigger,
+.history-page .site-header:not(.is-scrolled):not(.menu-open) .nav-link,
+.history-page .site-header:not(.is-scrolled):not(.menu-open) .nav-trigger {
+  text-shadow: 0 2px 8px rgb(0 0 0 / 78%);
+}
+
+.vision-page .header-search-toggle,
+.history-page .header-search-toggle {
+  border: 1px solid rgb(255 255 255 / 72%);
+  background: rgb(255 255 255 / 8%);
+}
+
+.vision-page .header-search-toggle:hover,
+.history-page .header-search-toggle:hover {
+  border-color: #fff;
+  background: rgb(255 255 255 / 18%);
+}
+
+.vision-page .site-header.is-scrolled .header-search-toggle,
+.history-page .site-header.is-scrolled .header-search-toggle {
+  border-color: #d7e3dd;
+  background: #fff;
+}
+
+.vision-page .site-header.is-scrolled .header-search-toggle:hover,
+.history-page .site-header.is-scrolled .header-search-toggle:hover {
+  border-color: #b6d9c9;
+  background: #edf6f0;
+}
+
+.subpage-hero {
+  --subpage-photo-height: clamp(300px, 23.2vw, 440px);
+
+  position: relative;
+  min-height: 600px;
+  overflow: hidden;
+  isolation: isolate;
+  background: #fff;
+}
+
+.subpage-hero-photo {
+  position: absolute;
+  inset: 0 0 auto;
+  height: var(--subpage-photo-height);
+  overflow: hidden;
+  background: #19493c;
+}
+
+.subpage-hero-photo::after {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgb(3 23 19 / 54%) 0%, rgb(3 23 19 / 30%) 52%, transparent 100%),
+    linear-gradient(90deg, rgb(4 42 34 / 28%), rgb(4 50 40 / 8%) 75%);
+  content: "";
+}
+
+.subpage-hero-photo img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center 58%;
+}
+
+.subpage-hero-card {
+  position: relative;
+  min-height: 320px;
+  left: 0;
+  width: 100%;
+  margin-top: calc(var(--subpage-photo-height) - 20px);
+  padding: 34px max(var(--page-gutter), calc((100% - 1440px) / 2)) 44px;
+  border-radius: 26px 26px 0 0;
+  background: #fff;
+  color: #17212f;
+}
+
+.subpage-hero-content {
+  width: min(100%, var(--content-width));
+  margin: 0 auto;
+}
+
+.subpage-hero-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 22px;
+  color: #74818d;
+  font-size: 12px;
+}
+
+.subpage-hero-breadcrumb a {
+  color: #087fce;
+  text-decoration: none;
+}
+
+.subpage-hero-breadcrumb a:hover {
+  color: #075b99;
+}
+
+.subpage-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  margin-bottom: 16px;
+  color: var(--green);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .12em;
+}
+
+.subpage-hero h1 {
+  margin: 0 0 14px;
+  color: #17212f;
+  font-size: clamp(44px, 4.2vw, 66px);
+  font-weight: 750;
+  letter-spacing: -.055em;
+  line-height: 1.03;
+  white-space: pre-line;
+}
+
+.subpage-title-divider {
+  position: relative;
+  width: 100%;
+  height: 12px;
+  display: block;
+  margin: 18px 0 16px;
+  background: linear-gradient(to right, var(--green) 0 96px, #dfe8e3 96px 100%) center / 100% 1.5px no-repeat;
+}
+
+.subpage-title-divider::before {
+  position: absolute;
+  top: 2px;
+  left: 91px;
+  width: 8px;
+  height: 8px;
+  border: 1.5px solid var(--green);
+  background: #fff;
+  box-shadow: 0 0 0 4px #fff;
+  content: "";
+  transform: rotate(45deg);
+}
+
+.subpage-title-divider::after {
+  position: absolute;
+  top: 5px;
+  right: 0;
+  left: 96px;
+  height: 2px;
+  background-image: linear-gradient(90deg, transparent, rgb(8 127 102 / 48%), transparent);
+  background-repeat: no-repeat;
+  background-size: 22% 100%;
+  content: "";
+  animation: subpage-divider-sweep 4.8s ease-in-out infinite;
+}
+
+@keyframes subpage-divider-sweep {
+  from {
+    background-position: 0 0;
+  }
+
+  to {
+    background-position: 100% 0;
+  }
+}
+
+.subpage-hero-description {
+  max-width: 560px;
+  margin: 10px 0 50px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+@media (max-width: 980px) {
+  .subpage-hero h1 {
+    font-size: clamp(42px, 6vw, 58px);
+  }
+}
+
+@media (max-width: 640px) {
+  .vision-page .site-header,
+  .vision-page .site-header.is-scrolled,
+  .history-page .site-header,
+  .history-page .site-header.is-scrolled {
+    padding-right: var(--section-inset);
+    padding-left: var(--section-inset);
+  }
+
+  .vision-page .header-search-toggle,
+  .history-page .header-search-toggle {
+    width: 42px;
+    height: 42px;
+    justify-content: center;
+    padding: 0;
+    border-bottom: 1px solid rgb(255 255 255 / 72%);
+  }
+
+  .vision-page .main-nav.is-open .header-search-toggle,
+  .history-page .main-nav.is-open .header-search-toggle {
+    border-color: #d7e3dd;
+    background: #fff;
+  }
+
+  .subpage-hero {
+    --subpage-photo-height: 290px;
+
+    min-height: 520px;
+  }
+
+  .subpage-hero-card {
+    min-height: 282px;
+    margin-top: 238px;
+    padding: 26px var(--page-gutter) 34px;
+    border-radius: 22px 22px 0 0;
+  }
+
+  .subpage-hero-breadcrumb {
+    margin-bottom: 20px;
+  }
+
+  .subpage-hero-badge {
+    margin-bottom: 14px;
+    font-size: 9px;
+  }
+
+  .subpage-hero h1 {
+    font-size: clamp(37px, 9.5vw, 48px);
+  }
+
+  .subpage-title-divider {
+    margin: 16px 0 13px;
+  }
+
+  .subpage-hero h1 {
+    margin-bottom: 12px;
+  }
+
+  .subpage-hero-description {
+    max-width: 100%;
+    font-size: 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .subpage-title-divider::after {
+    animation: none;
+    opacity: 0;
+  }
+}
